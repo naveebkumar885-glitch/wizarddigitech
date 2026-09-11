@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Achievements — Wizard Digitech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --charcoal: #111111;
+      --white: #FAF9F6;
+      --beige: #EDE9E2;
+      --gray: #77736D;
+      --gold: #A88752;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Inter', sans-serif;
+      --container: 1200px;
+      --pad: clamp(24px, 5vw, 96px);
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    ul {
+      list-style: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .wrap {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+    .section {
+      padding: min(11vw, 120px) 0;
+    }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    h2 {
+      font-size: clamp(2rem, 3.6vw, 3.1rem);
+    }
+    h3 {
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      font-weight: 600;
+    }
+    p {
+      color: var(--gray);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 2px;
+      transition: all .4s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(17, 17, 17, .35);
+    }
+    .btn-outline {
+      border: 1px solid var(--charcoal);
+      color: var(--charcoal);
+    }
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .btn span.arrow {
+      transition: transform .35s var(--ease);
+    }
+    .btn:hover span.arrow {
+      transform: translateX(5px);
+    }
+    .gold {
+      color: var(--gold);
+    }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal-scale.in {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal-left.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal-right.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background .4s var(--ease), border-color .4s var(--ease), padding .4s var(--ease);
+      padding: 26px 0;
+      background: rgba(250, 249, 246, 0);
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      background: rgba(250, 249, 246, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17, 17, 17, .08);
+      padding: 16px 0;
+    }
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--white);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(17, 17, 17, .08);
+      flex: none;
+    }
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+    .brand-tagline {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+    nav.primary-nav {
+      display: flex;
+      gap: 38px;
+    }
+    nav.primary-nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      position: relative;
+      padding: 4px 0;
+    }
+    nav.primary-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .35s var(--ease);
+    }
+    nav.primary-nav a:hover::after {
+      width: 100%;
+    }
+    nav.primary-nav a.active::after {
+      width: 100%;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 26px;
+    }
+    .hamburger span {
+      height: 1.5px;
+      width: 100%;
+      background: var(--charcoal);
+      transition: all .35s var(--ease);
+    }
+    @media(max-width:960px) {
+      nav.primary-nav {
+        display: none;
+      }
+      .nav-right .btn-primary {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--pad);
+      transform: translateY(-100%);
+      transition: transform .5s var(--ease);
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+    }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(17, 17, 17, .08);
+    }
+    .mobile-menu .btn {
+      margin-top: 28px;
+      align-self: flex-start;
+    }
+
+    /* ===== PAGE: ACHIEVEMENTS ===== */
+    .page-hero {
+      padding: 160px 0 60px;
+      background: var(--beige);
+    }
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4rem);
+    }
+    .page-hero .subtitle {
+      max-width: 650px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      background: var(--white);
+      padding: 32px 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+      border-bottom: 3px solid var(--gold);
+    }
+    .stat-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+    .stat-item .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      color: var(--charcoal);
+      line-height: 1.1;
+      font-weight: 600;
+    }
+    .stat-item .stat-number .plus {
+      color: var(--gold);
+      font-size: 0.7em;
+    }
+    .stat-item .stat-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 6px;
+    }
+    .stat-item .stat-desc {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    @media(max-width:900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media(max-width:560px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .stat-item {
+        padding: 24px 16px;
+      }
+      .stat-item .stat-number {
+        font-size: 2rem;
+      }
+    }
+
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .cert-item {
+      background: var(--white);
+      padding: 28px 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .cert-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+    .cert-item .cert-icon {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+    .cert-item .cert-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin: 0 auto 12px;
+      border-radius: 8px;
+      background: var(--beige);
+      padding: 12px;
+    }
+    .cert-item h4 {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .cert-item p {
+      font-size: 0.78rem;
+      margin-top: 4px;
+    }
+    @media(max-width:900px) {
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media(max-width:560px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* Impact Row */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .impact-item {
+      background: var(--beige);
+      padding: 30px 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform .3s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .impact-item:hover {
+      transform: translateY(-4px);
+    }
+    .impact-item .impact-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      border: 3px solid var(--gold);
+    }
+    .impact-item .impact-number {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .impact-item h4 {
+      font-size: 1rem;
+      margin: 6px 0 4px;
+    }
+    .impact-item p {
+      font-size: 0.85rem;
+    }
+    @media(max-width:900px) {
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media(max-width:560px) {
+      .impact-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* Hero Image */
+    .hero-image-wrap {
+      margin-top: 30px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    /* CTA */
+    .cta-achievements {
+      background: var(--charcoal);
+      color: var(--white);
+      text-align: center;
+      padding: 70px 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .cta-achievements h2 {
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .cta-achievements p {
+      color: rgba(250, 249, 246, .7);
+      max-width: 540px;
+      margin: 0 auto 30px;
+    }
+    .cta-achievements .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--charcoal);
+      color: rgba(250, 249, 246, .7);
+      padding: min(8vw, 90px) 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(250, 249, 246, .12);
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .footer-brand .brand-mark {
+      width: 40px;
+      height: 40px;
+    }
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+    .footer-tagline {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+      display: block;
+    }
+    footer .col-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    footer .col-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    footer .col-list a {
+      font-size: 0.88rem;
+      transition: color .3s var(--ease);
+    }
+    footer .col-list a:hover {
+      color: var(--gold);
+    }
+    .footer-desc {
+      font-size: 0.88rem;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.78rem;
+    }
+    .footer-bottom .legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .social-row a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(250, 249, 246, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: all .3s var(--ease);
+    }
+    .social-row a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    @media(max-width:900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+      }
+    }
+    @media(max-width:560px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="siteHeader">
+    <div class="wrap nav-row">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FAF9F6'/%3E%3Ctext x='14' y='68' font-family='Cormorant Garamond, serif' font-size='52' fill='%23111111' font-weight='600'%3EW%3C/text%3E%3C/svg%3E" alt="Wizard Digitech logo"></span>
+        <span><span class="brand-name">Wizard Digitech</span><span class="brand-tagline">Digital Growth Partner</span></span>
+      </a>
+      <nav class="primary-nav">
+        <a href="index.html">Home</a>
+        <a href="digitalmarketing.html">Digital Marketing</a>
+        <a href="electronicrepairs.html">Electronic Repairs</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="Archeivements.html" class="active">Achievements</a>
+      </nav>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="digitalmarketing.html">Digital Marketing</a>
+    <a href="electronicrepairs.html">Electronic Repairs</a>
+    <a href="about.html">About</a>
+    <a href="team.html">Team</a>
+    <a href="Archeivements.html">Achievements</a>
+    <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Wizard Digitech</span>
+      <h1>Our Achievements</h1>
+      <p class="subtitle">Numbers That Speak for Our Quality, Dedication &amp; Expertise — we measure our success through the people we've trained, devices we've repaired, customers we've served, and the standards we've maintained.</p>
+    </div>
+  </section>
+
+  <!-- ===== HERO IMAGE ===== -->
+  <section style="padding-top: 0;">
+    <div class="wrap">
+      <div class="hero-image-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=400&fit=crop&crop=center" alt="Our team achieving excellence" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS GRID ===== -->
+  <section class="section" style="padding-top: 40px;">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">15,000<span class="plus">+</span></div>
+          <div class="stat-label">Devices Repaired</div>
+          <div class="stat-desc">Electronic devices successfully repaired with professional service and technical expertise.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">2,500<span class="plus">+</span></div>
+          <div class="stat-label">Students Trained</div>
+          <div class="stat-desc">Students trained and certified through practical digital marketing programs.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">98<span class="plus">%</span></div>
+          <div class="stat-label">Success Rate</div>
+          <div class="stat-desc">Overall service and training success rate.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">4.9<span class="plus">★</span></div>
+          <div class="stat-label">Customer Rating</div>
+          <div class="stat-desc">Average customer satisfaction rating.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">15<span class="plus">+</span></div>
+          <div class="stat-label">Industry Awards</div>
+          <div class="stat-desc">Awards for excellence in digital marketing and repair services.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">5,000<span class="plus">+</span></div>
+          <div class="stat-label">Happy Clients</div>
+          <div class="stat-desc">Satisfied customers across India.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">50<span class="plus">+</span></div>
+          <div class="stat-label">Certified Engineers</div>
+          <div class="stat-desc">Professional certified repair technicians.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">10<span class="plus">+</span></div>
+          <div class="stat-label">Google Partners</div>
+          <div class="stat-desc">Google-certified digital marketers.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">10<span class="plus">+</span></div>
+          <div class="stat-label">Years of Excellence</div>
+          <div class="stat-desc">Years of dedicated service.</div>
+        </div>
+        <div class="stat-item reveal-scale">
+          <div class="stat-number">22<span class="plus">+</span></div>
+          <div class="stat-label">Cities Served</div>
+          <div class="stat-desc">Major cities across India.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section class="section" style="background: var(--beige);">
+    <div class="wrap">
+      <div class="team-section-title reveal">
+        <span class="eyebrow">Certifications &amp; Recognition</span>
+        <h2>Google Partner &amp; HubSpot Certified</h2>
+        <p style="max-width: 600px; margin: 10px auto 0;">We are proud to be recognized as industry leaders with these prestigious certifications.</p>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-item reveal-scale">
+          <img class="cert-img" src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=200&h=200&fit=crop&crop=center" alt="Google Partner" loading="lazy">
+          <h4>Google Partner Agency</h4>
+          <p>Certified Google Partner</p>
+        </div>
+        <div class="cert-item reveal-scale">
+          <img class="cert-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=200&h=200&fit=crop&crop=center" alt="HubSpot Certified" loading="lazy">
+          <h4>HubSpot Certified Agency</h4>
+          <p>HubSpot Certified Partner</p>
+        </div>
+        <div class="cert-item reveal-scale">
+          <img class="cert-img" src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=200&h=200&fit=crop&crop=center" alt="Apple Certified" loading="lazy">
+          <h4>Apple Certified Service Provider</h4>
+          <p>Apple Authorized Service</p>
+        </div>
+        <div class="cert-item reveal-scale">
+          <img class="cert-img" src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=200&h=200&fit=crop&crop=center" alt="Samsung Authorized" loading="lazy">
+          <h4>Samsung Authorized Service Partner</h4>
+          <p>Samsung Certified Service</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--gray);">Our commitment to quality and excellence has earned us these prestigious certifications, ensuring you receive world-class services.</p>
+    </div>
+  </section>
+
+  <!-- ===== IMPACT ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="team-section-title reveal">
+        <span class="eyebrow">Our Impact</span>
+        <h2>Making a difference</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-item reveal-left">
+          <img class="impact-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=200&h=200&fit=crop&crop=center" alt="Devices repaired" loading="lazy">
+          <div class="impact-number">15,000+</div>
+          <h4>Devices Repaired</h4>
+          <p>Helping customers restore and extend the life of their electronic devices.</p>
+        </div>
+        <div class="impact-item reveal-scale">
+          <img class="impact-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=200&h=200&fit=crop&crop=center" alt="Students trained" loading="lazy">
+          <div class="impact-number">2,500+</div>
+          <h4>Students Trained</h4>
+          <p>Providing practical digital marketing knowledge and professional training.</p>
+        </div>
+        <div class="impact-item reveal-scale">
+          <img class="impact-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&h=200&fit=crop&crop=center" alt="Happy clients" loading="lazy">
+          <div class="impact-number">5,000+</div>
+          <h4>Happy Clients</h4>
+          <p>Building lasting relationships through quality service and customer satisfaction.</p>
+        </div>
+        <div class="impact-item reveal-right">
+          <img class="impact-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=200&fit=crop&crop=center" alt="Cities served" loading="lazy">
+          <div class="impact-number">22+</div>
+          <h4>Cities Served</h4>
+          <p>Extending our services across major cities throughout India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="cta-achievements reveal">
+        <h2>Experience Quality. Expertise. Excellence.</h2>
+        <p>Whether you are looking to develop your digital marketing skills or need professional electronics repair, our team is ready to help.</p>
+        <div class="btn-group">
+          <a href="digitalmarketing.html" class="btn btn-outline" style="border-color:rgba(250,249,246,0.4); color:var(--white);">Explore Our Services <span class="arrow">→</span></a>
+          <a href="index.html#contact" class="btn btn-primary" style="background:var(--gold); color:var(--charcoal);">Contact Us <span class="arrow">→</span></a>
+        </div>
+        <p style="margin-top: 30px; font-size:0.85rem; color:rgba(250,249,246,0.5);">digitalmonk.org — where expertise meets reliability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="brand-mark"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FAF9F6'/%3E%3Ctext x='14' y='68' font-family='Cormorant Garamond, serif' font-size='52' fill='%23111111' font-weight='600'%3EW%3C/text%3E%3C/svg%3E" alt="Wizard Digitech logo"></span>
+            <span><span class="footer-brand-name">Wizard Digitech</span><span class="footer-tagline">Your Digital Growth Partner</span></span>
+          </div>
+          <p class="footer-desc">Building meaningful digital experiences for ambitious businesses.</p>
+          <div class="social-row"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="YouTube">YT</a></div>
+        </div>
+        <div>
+          <div class="col-title">Navigation</div>
+          <div class="col-list">
+            <a href="index.html">Home</a>
+            <a href="digitalmarketing.html">Digital Marketing</a>
+            <a href="electronicrepairs.html">Electronic Repairs</a>
+            <a href="about.html">About</a>
+            <a href="team.html">Team</a>
+            <a href="Archeivements.html">Achievements</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Services</div>
+          <div class="col-list">
+            <a href="digitalmarketing.html">SEO</a>
+            <a href="digitalmarketing.html">Paid Ads</a>
+            <a href="digitalmarketing.html">Social Media</a>
+            <a href="digitalmarketing.html">Content</a>
+            <a href="digitalmarketing.html">Brand Strategy</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Contact</div>
+          <div class="col-list">
+            <a href="tel:+917097754200">+91 70977 54200</a>
+            <a href="mailto:wizard.digitech@gmail.com">wizard.digitech@gmail.com</a>
+            <span>Vijayawada, AP</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Wizard Digitech. All rights reserved.</span>
+        <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== STICKY HEADER =====
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+    // ===== MOBILE MENU =====
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // ===== SCROLL REVEAL =====
+    const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
+    });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

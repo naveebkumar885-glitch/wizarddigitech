@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team — Wizard Digitech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== TOKENS (shared) ===== */
+    :root {
+      --charcoal: #111111;
+      --white: #FAF9F6;
+      --beige: #EDE9E2;
+      --gray: #77736D;
+      --gold: #A88752;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Inter', sans-serif;
+      --container: 1200px;
+      --pad: clamp(24px, 5vw, 96px);
+      --ease: cubic-bezier(.4, 0, .2, 1);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    ul {
+      list-style: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .wrap {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+    .section {
+      padding: min(11vw, 120px) 0;
+    }
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    h2 {
+      font-size: clamp(2rem, 3.6vw, 3.1rem);
+    }
+    h3 {
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      font-weight: 600;
+    }
+    p {
+      color: var(--gray);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 2px;
+      transition: all .4s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(17, 17, 17, .35);
+    }
+    .btn-outline {
+      border: 1px solid var(--charcoal);
+      color: var(--charcoal);
+    }
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .btn span.arrow {
+      transition: transform .35s var(--ease);
+    }
+    .btn:hover span.arrow {
+      transform: translateX(5px);
+    }
+    .gold {
+      color: var(--gold);
+    }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal-left.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal-right.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal-scale.in {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background .4s var(--ease), border-color .4s var(--ease), padding .4s var(--ease);
+      padding: 26px 0;
+      background: rgba(250, 249, 246, 0);
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      background: rgba(250, 249, 246, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17, 17, 17, .08);
+      padding: 16px 0;
+    }
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      background: var(--white);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(17, 17, 17, .08);
+      flex: none;
+    }
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+    .brand-tagline {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+    nav.primary-nav {
+      display: flex;
+      gap: 38px;
+    }
+    nav.primary-nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      position: relative;
+      padding: 4px 0;
+    }
+    nav.primary-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .35s var(--ease);
+    }
+    nav.primary-nav a:hover::after {
+      width: 100%;
+    }
+    nav.primary-nav a.active::after {
+      width: 100%;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 26px;
+    }
+    .hamburger span {
+      height: 1.5px;
+      width: 100%;
+      background: var(--charcoal);
+      transition: all .35s var(--ease);
+    }
+    @media(max-width:960px) {
+      nav.primary-nav {
+        display: none;
+      }
+      .nav-right .btn-primary {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--pad);
+      transform: translateY(-100%);
+      transition: transform .5s var(--ease);
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+    }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(17, 17, 17, .08);
+    }
+    .mobile-menu .btn {
+      margin-top: 28px;
+      align-self: flex-start;
+    }
+
+    /* ===== PAGE: TEAM ===== */
+    .page-hero {
+      padding: 160px 0 60px;
+      background: var(--beige);
+    }
+    .page-hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4rem);
+    }
+    .page-hero .subtitle {
+      max-width: 680px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    /* team sections */
+    .team-section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .team-section-title h2 {
+      margin-bottom: 10px;
+    }
+    .team-section-title p {
+      font-size: 1.02rem;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .team-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+      text-align: center;
+    }
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+    }
+    .team-card .card-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      background: var(--beige);
+    }
+    .team-card .card-body {
+      padding: 20px 18px 24px;
+    }
+    .team-card .card-body .name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .team-card .card-body .role {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .team-card .card-body .exp {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+    .team-card .card-body .exp span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+
+    /* divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px 0;
+      margin: 20px 0;
+    }
+    .divider .line {
+      flex: 1;
+      max-width: 200px;
+      height: 1px;
+      background: rgba(17, 17, 17, 0.12);
+    }
+    .divider .badge {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    /* two expertise row */
+    .expertise-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .expertise-box {
+      background: var(--beige);
+      border-radius: 8px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform .4s var(--ease);
+    }
+    .expertise-box:hover {
+      transform: translateY(-4px);
+    }
+    .expertise-box .icon-big {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .expertise-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .expertise-box p {
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta-team {
+      background: var(--charcoal);
+      color: var(--white);
+      text-align: center;
+      padding: 70px 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .cta-team h2 {
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .cta-team p {
+      color: rgba(250, 249, 246, .7);
+      max-width: 540px;
+      margin: 0 auto 30px;
+    }
+    .cta-team .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media(max-width:900px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .expertise-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media(max-width:560px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+      .page-hero {
+        padding: 140px 0 40px;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--charcoal);
+      color: rgba(250, 249, 246, .7);
+      padding: min(8vw, 90px) 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(250, 249, 246, .12);
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .footer-brand .brand-mark {
+      width: 40px;
+      height: 40px;
+    }
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+    .footer-tagline {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+      display: block;
+    }
+    footer .col-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    footer .col-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    footer .col-list a {
+      font-size: 0.88rem;
+      transition: color .3s var(--ease);
+    }
+    footer .col-list a:hover {
+      color: var(--gold);
+    }
+    .footer-desc {
+      font-size: 0.88rem;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.78rem;
+    }
+    .footer-bottom .legal {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .social-row a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(250, 249, 246, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: all .3s var(--ease);
+    }
+    .social-row a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    @media(max-width:900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+      }
+    }
+    @media(max-width:560px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="siteHeader">
+    <div class="wrap nav-row">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FAF9F6'/%3E%3Ctext x='14' y='68' font-family='Cormorant Garamond, serif' font-size='52' fill='%23111111' font-weight='600'%3EW%3C/text%3E%3C/svg%3E" alt="Wizard Digitech logo"></span>
+        <span><span class="brand-name">Wizard Digitech</span><span class="brand-tagline">Digital Growth Partner</span></span>
+      </a>
+      <nav class="primary-nav">
+        <a href="index.html">Home</a>
+        <a href="digitalmarketing.html">Digital Marketing</a>
+        <a href="electronicrepairs.html">Electronic Repairs</a>
+        <a href="about.html">About</a>
+        <a href="team.html" class="active">Team</a>
+        <a href="Archeivements.html">Achievements</a>
+      </nav>
+      <div class="nav-right">
+        <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="digitalmarketing.html">Digital Marketing</a>
+    <a href="electronicrepairs.html">Electronic Repairs</a>
+    <a href="about.html">About</a>
+    <a href="team.html">Team</a>
+    <a href="Archeivements.html">Achievements</a>
+    <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Wizard Digitech</span>
+      <h1>Our Team</h1>
+      <p class="subtitle">Meet the Experts Behind Our Digital &amp; Technical Excellence — a team of experienced digital marketing professionals and skilled electronics repair engineers, working together to deliver practical solutions, reliable service and professional expertise.</p>
+    </div>
+  </section>
+
+  <!-- ===== DIGITAL MARKETING TEAM ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="team-section-title reveal">
+        <span class="eyebrow">Digital Marketing Team</span>
+        <h2>— experts in digital strategy &amp; growth</h2>
+      </div>
+      <div class="team-grid">
+        <!-- Maya Krishnan -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=center" alt="Maya Krishnan" loading="lazy">
+          <div class="card-body">
+            <div class="name">Maya Krishnan</div>
+            <div class="role">Digital Marketing Head</div>
+            <div class="exp">12+ years experience<br><span>Digital strategy · Google Partner certified</span></div>
+          </div>
+        </div>
+        <!-- Vikram Singh -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=center" alt="Vikram Singh" loading="lazy">
+          <div class="card-body">
+            <div class="name">Vikram Singh</div>
+            <div class="role">SEO Specialist</div>
+            <div class="exp">8+ years experience<br><span>SEO &amp; content marketing</span></div>
+          </div>
+        </div>
+        <!-- Neha Patel -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop&crop=center" alt="Neha Patel" loading="lazy">
+          <div class="card-body">
+            <div class="name">Neha Patel</div>
+            <div class="role">Social Media Manager</div>
+            <div class="exp">7+ years experience<br><span>Social media strategy</span></div>
+          </div>
+        </div>
+        <!-- Ananya Reddy -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=center" alt="Ananya Reddy" loading="lazy">
+          <div class="card-body">
+            <div class="name">Ananya Reddy</div>
+            <div class="role">Content Strategist</div>
+            <div class="exp">6+ years experience<br><span>Content creation &amp; storytelling</span></div>
+          </div>
+        </div>
+        <!-- Rahul Sharma (PPC) -->
+        <div class="team-card reveal-scale" style="grid-column: span 1; max-width: 100%; justify-self: center;">
+          <img class="card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center" alt="Rahul Sharma" loading="lazy">
+          <div class="card-body">
+            <div class="name">Rahul Sharma</div>
+            <div class="role">PPC Expert</div>
+            <div class="exp">5+ years experience<br><span>Google Ads &amp; Facebook Ads</span></div>
+          </div>
+        </div>
+        <!-- note: we have 5 in digital marketing, keep grid clean -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIVIDER ===== -->
+  <div class="wrap">
+    <div class="divider reveal">
+      <span class="line"></span>
+      <span class="badge">✦ One Team. Two Expertises. ✦</span>
+      <span class="line"></span>
+    </div>
+  </div>
+
+  <!-- ===== ELECTRONICS REPAIR TEAM ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="team-section-title reveal">
+        <span class="eyebrow">Electronics Repair Team</span>
+        <h2>— technical experts &amp; certified engineers</h2>
+      </div>
+      <div class="team-grid">
+        <!-- Arjun Kumar -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=center" alt="Arjun Kumar" loading="lazy">
+          <div class="card-body">
+            <div class="name">Arjun Kumar</div>
+            <div class="role">Lead Electronics Engineer</div>
+            <div class="exp">12+ years experience<br><span>Electronics repair · Certified Apple technician</span></div>
+          </div>
+        </div>
+        <!-- Rahul Desai -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=center" alt="Rahul Desai" loading="lazy">
+          <div class="card-body">
+            <div class="name">Rahul Desai</div>
+            <div class="role">Hardware Specialist</div>
+            <div class="exp">8+ years experience<br><span>Micro-soldering &amp; component-level</span></div>
+          </div>
+        </div>
+        <!-- Deepak Reddy -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=center" alt="Deepak Reddy" loading="lazy">
+          <div class="card-body">
+            <div class="name">Deepak Reddy</div>
+            <div class="role">Senior Technician</div>
+            <div class="exp">7+ years experience<br><span>Smartphone &amp; laptop repair</span></div>
+          </div>
+        </div>
+        <!-- Suresh Babu -->
+        <div class="team-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=center" alt="Suresh Babu" loading="lazy">
+          <div class="card-body">
+            <div class="name">Suresh Babu</div>
+            <div class="role">Console Repair Expert</div>
+            <div class="exp">6+ years experience<br><span>Gaming console &amp; audio repair</span></div>
+          </div>
+        </div>
+        <!-- Priya Mehta -->
+        <div class="team-card reveal-scale" style="grid-column: span 1; max-width: 100%; justify-self: center;">
+          <img class="card-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=center" alt="Priya Mehta" loading="lazy">
+          <div class="card-body">
+            <div class="name">Priya Mehta</div>
+            <div class="role">Customer Success Manager</div>
+            <div class="exp">7+ years experience<br><span>Client relations &amp; service delivery</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERTISE ROW ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="expertise-row">
+        <div class="expertise-box reveal-left">
+          <div class="icon-big">📈</div>
+          <h3>Digital Marketing Experts</h3>
+          <p>From building digital skills and growing online presence — our marketing team delivers strategy, creativity and measurable results.</p>
+        </div>
+        <div class="expertise-box reveal-right">
+          <div class="icon-big">🔧</div>
+          <h3>Electronics Repair Engineers</h3>
+          <p>Diagnosing and repairing electronic devices with precision — from smartphones to gaming consoles, our engineers ensure quality service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="cta-team reveal">
+        <h2>Ready to Work With Our Team?</h2>
+        <p>Whether you need digital marketing training, marketing services, or professional electronics repair, our team is ready to help.</p>
+        <div class="btn-group">
+          <a href="digitalmarketing.html" class="btn btn-outline" style="border-color:rgba(250,249,246,0.4); color:var(--white);">Explore Our Services <span class="arrow">→</span></a>
+          <a href="index.html#contact" class="btn btn-primary" style="background:var(--gold); color:var(--charcoal);">Contact Us <span class="arrow">→</span></a>
+        </div>
+        <p style="margin-top: 30px; font-size:0.85rem; color:rgba(250,249,246,0.5);">digitalmonk.org — where expertise meets reliability</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="brand-mark"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FAF9F6'/%3E%3Ctext x='14' y='68' font-family='Cormorant Garamond, serif' font-size='52' fill='%23111111' font-weight='600'%3EW%3C/text%3E%3C/svg%3E" alt="Wizard Digitech logo"></span>
+            <span><span class="footer-brand-name">Wizard Digitech</span><span class="footer-tagline">Your Digital Growth Partner</span></span>
+          </div>
+          <p class="footer-desc">Building meaningful digital experiences for ambitious businesses.</p>
+          <div class="social-row"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">IN</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="YouTube">YT</a></div>
+        </div>
+        <div>
+          <div class="col-title">Navigation</div>
+          <div class="col-list">
+            <a href="index.html">Home</a>
+            <a href="digitalmarketing.html">Digital Marketing</a>
+            <a href="electronicrepairs.html">Electronic Repairs</a>
+            <a href="about.html">About</a>
+            <a href="team.html">Team</a>
+            <a href="Archeivements.html">Achievements</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Services</div>
+          <div class="col-list">
+            <a href="digitalmarketing.html">SEO</a>
+            <a href="digitalmarketing.html">Paid Ads</a>
+            <a href="digitalmarketing.html">Social Media</a>
+            <a href="digitalmarketing.html">Content</a>
+            <a href="digitalmarketing.html">Brand Strategy</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Contact</div>
+          <div class="col-list">
+            <a href="tel:+917097754200">+91 70977 54200</a>
+            <a href="mailto:wizard.digitech@gmail.com">wizard.digitech@gmail.com</a>
+            <span>Vijayawada, AP</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Wizard Digitech. All rights reserved.</span>
+        <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== STICKY HEADER =====
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+    // ===== MOBILE MENU =====
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // ===== SCROLL REVEAL (Intersection Observer) =====
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          // optionally unobserve after reveal
+          // observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
+    });
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
