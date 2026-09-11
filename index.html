@@ -19,6 +19,7 @@
   --beige:#EDE9E2;
   --gray:#77736D;
   --gold:#A88752;
+  --brand-red:#E01E26;
 
   --serif:'Cormorant Garamond', serif;
   --sans:'Inter', sans-serif;
@@ -98,11 +99,6 @@ p{color:var(--gray);}
   color:var(--charcoal);
 }
 .btn-outline:hover{background:var(--charcoal); color:var(--white);}
-.btn-light{
-  border:1px solid rgba(250,249,246,.4);
-  color:var(--white);
-}
-.btn-light:hover{background:var(--white); color:var(--charcoal);}
 .btn span.arrow{transition:transform .35s var(--ease);}
 .btn:hover span.arrow{transform:translateX(5px);}
 
@@ -122,6 +118,20 @@ p{color:var(--gray);}
 .reveal.in{opacity:1; transform:translateY(0);}
 
 /* ============================================
+   LOGO IMAGE
+   ============================================ */
+.brand-logo{
+  width:44px;
+  height:44px;
+  object-fit:contain;
+  flex:none;
+  border-radius:6px;
+  background:#FFFFFF;
+  padding:4px;
+  box-shadow:0 1px 3px rgba(17,17,17,.10), 0 0 0 1px rgba(17,17,17,.04);
+}
+
+/* ============================================
    NAVBAR
    ============================================ */
 header{
@@ -139,16 +149,6 @@ header.scrolled{
 }
 .nav-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
 .brand{display:flex; align-items:center; gap:12px; flex:none;}
-.brand-mark{
-  width:44px; height:44px;
-  background:var(--white);
-  border-radius:3px;
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-  box-shadow:0 1px 3px rgba(17,17,17,.08);
-  flex:none;
-}
-.brand-mark img{width:100%; height:100%; object-fit:contain; padding:4px;}
 .brand-name{
   font-family:var(--serif);
   font-size:1.15rem;
@@ -241,10 +241,13 @@ nav.primary-nav a:hover::after{width:100%;}
   aspect-ratio:4/5;
   border-radius:4px;
   overflow:hidden;
-  background:
-    linear-gradient(155deg, #1a1a1a 0%, var(--charcoal) 55%, #0a0a0a 100%);
+  background:var(--beige);
+  box-shadow:0 20px 60px -20px rgba(17,17,17,.25);
 }
-.hero-visual svg{position:absolute; inset:0; width:100%; height:100%;}
+.hero-visual img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover;
+}
 .floating-card{
   position:absolute;
   bottom:28px; left:28px;
@@ -292,314 +295,70 @@ nav.primary-nav a:hover::after{width:100%;}
 }
 
 /* ============================================
-   ABOUT / INTRO
+   ABOUT (3 images)
    ============================================ */
-.about-grid{
+.about-home{
   display:grid;
-  grid-template-columns:1fr 0.85fr;
-  gap:clamp(40px,6vw,90px);
+  grid-template-columns:1fr 1.1fr;
+  gap:clamp(40px,6vw,80px);
   align-items:center;
 }
-.about-grid p.body{
-  font-size:1.02rem;
-  max-width:480px;
+.about-home .about-text h2{margin-bottom:20px;}
+.about-home .about-text p{margin-bottom:18px; font-size:1.02rem;}
+.about-home .about-text .stats-inline{
+  display:flex;
+  gap:36px;
   margin:26px 0 30px;
+  flex-wrap:wrap;
 }
-.abstract-panel{
-  aspect-ratio:1/1.05;
-  position:relative;
-  border-radius:4px;
-  overflow:hidden;
-  background:var(--beige);
-}
-.abstract-panel svg{width:100%; height:100%;}
-
-@media(max-width:900px){
-  .about-grid{grid-template-columns:1fr;}
-  .abstract-panel{order:-1;}
-}
-
-/* ============================================
-   SERVICES
-   ============================================ */
-.section-head{
-  max-width:640px;
-  margin-bottom:min(6vw,60px);
-}
-.section-head p{margin-top:16px; font-size:1.02rem;}
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:rgba(17,17,17,.1);
-  border:1px solid rgba(17,17,17,.1);
-}
-.service-card{
-  background:var(--white);
-  padding:44px 36px;
-  position:relative;
-  overflow:hidden;
-  transition:background .4s var(--ease);
-}
-.service-card::before{
-  content:"";
-  position:absolute; top:0; left:0; right:0; height:2px;
-  background:var(--gold);
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:transform .45s var(--ease);
-}
-.service-card:hover::before{transform:scaleX(1);}
-.service-card:hover{background:var(--white);}
-.service-card:hover{transform:none;}
-.service-num{
+.about-home .about-text .stats-inline .s-item .num{
   font-family:var(--serif);
-  font-size:0.95rem;
+  font-size:1.8rem;
   color:var(--gold);
-  margin-bottom:22px;
-  display:block;
-}
-.service-card h3{margin-bottom:12px;}
-.service-card p{font-size:0.92rem; margin-bottom:20px;}
-.service-link{
-  font-size:0.8rem;
   font-weight:600;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+  line-height:1;
 }
-.service-link span{transition:transform .35s var(--ease);}
-.service-card:hover .service-link span{transform:translateX(5px);}
-.service-card:hover{transform:translateY(-4px);}
-
-@media(max-width:900px){
-  .services-grid{grid-template-columns:1fr;}
-}
-
-/* ============================================
-   WORK / CASE STUDIES
-   ============================================ */
-.work-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:clamp(24px,3vw,40px);
-}
-.work-card{position:relative;}
-.work-image{
-  aspect-ratio:5/4;
-  border-radius:3px;
-  overflow:hidden;
-  margin-bottom:22px;
-  position:relative;
-}
-.work-image svg{width:100%;height:100%;}
-.work-card h3{margin-bottom:8px;}
-.work-meta{
-  font-size:0.82rem;
-  color:var(--gray);
-  margin-bottom:10px;
-}
-.work-result{
-  font-family:var(--serif);
-  font-size:1.15rem;
-  color:var(--gold);
-}
-.placeholder-tag{
-  display:inline-block;
-  font-size:0.65rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--gray);
-  border:1px solid rgba(17,17,17,.15);
-  padding:3px 8px;
-  border-radius:2px;
-  margin-top:10px;
-}
-
-@media(max-width:800px){
-  .work-grid{grid-template-columns:1fr;}
-}
-
-/* ============================================
-   ACHIEVEMENTS (dark)
-   ============================================ */
-.achievements{
-  background:var(--charcoal);
-  color:var(--white);
-  position:relative;
-}
-.achievements .section-head p{color:rgba(250,249,246,.6);}
-.achievements .eyebrow{color:var(--gold);}
-.stat-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-}
-.stat-cell{
-  padding:34px 24px 34px 0;
-  border-left:1px solid rgba(250,249,246,.14);
-  padding-left:28px;
-}
-.stat-num{
-  font-family:var(--serif);
-  font-size:clamp(2rem,3.4vw,2.8rem);
-  color:var(--white);
-}
-.stat-label{
+.about-home .about-text .stats-inline .s-item .lbl{
   font-size:0.78rem;
-  color:rgba(250,249,246,.55);
-  margin-top:8px;
-}
-.stat-note{
-  font-size:0.68rem;
-  color:var(--gold);
-  margin-top:10px;
+  color:var(--gray);
   letter-spacing:0.02em;
 }
-
-@media(max-width:900px){
-  .stat-grid{grid-template-columns:repeat(2,1fr); row-gap:30px;}
-}
-@media(max-width:520px){
-  .stat-grid{grid-template-columns:1fr; row-gap:26px;}
-  .stat-cell{border-left:none; border-top:1px solid rgba(250,249,246,.14); padding-left:0; padding-top:24px;}
-}
-
-/* ============================================
-   APPROACH / PROCESS
-   ============================================ */
-.process-row{
+.about-images{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:0;
-  position:relative;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:16px;
 }
-.process-row::before{
-  content:"";
-  position:absolute; top:14px; left:0; right:0;
-  height:1px;
-  background:rgba(17,17,17,.12);
+.about-images .img-box{
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 8px 24px -8px rgba(17,17,17,.15);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.process-step{
-  padding-top:44px;
-  padding-right:28px;
-  position:relative;
+.about-images .img-box:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px -12px rgba(17,17,17,.22);
 }
-.process-step::before{
-  content:"";
-  position:absolute; top:8px; left:0;
-  width:12px; height:12px;
-  border-radius:50%;
-  background:var(--white);
-  border:2px solid var(--gold);
+.about-images .img-box img{
+  width:100%; height:100%;
+  object-fit:cover;
+  aspect-ratio:1/1;
 }
-.process-num{
-  font-size:0.72rem;
-  letter-spacing:0.1em;
-  color:var(--gold);
-  font-weight:600;
-  display:block;
-  margin-bottom:14px;
+.about-images .img-box.tall{
+  grid-row:span 2;
 }
-.process-step h3{margin-bottom:10px; font-size:1.15rem;}
-.process-step p{font-size:0.9rem;}
-
-@media(max-width:800px){
-  .process-row{grid-template-columns:1fr; gap:36px;}
-  .process-row::before{width:1px; height:100%; left:5px; top:0;}
-  .process-step{padding-left:32px; padding-right:0; padding-top:0;}
-  .process-step::before{top:6px; left:0;}
+.about-images .img-box.tall img{
+  aspect-ratio:auto;
+  height:100%;
 }
-
-/* ============================================
-   WHY CHOOSE US
-   ============================================ */
-.why-grid{
-  display:grid;
-  grid-template-columns:0.9fr 1.1fr;
-  gap:clamp(30px,5vw,70px);
-}
-.why-list{display:grid; grid-template-columns:1fr 1fr; gap:36px 40px; margin-top:8px;}
-.why-item{border-top:1px solid rgba(17,17,17,.12); padding-top:20px;}
-.why-item h3{font-size:1.05rem; margin-bottom:10px;}
-.why-item p{font-size:0.9rem;}
-
 @media(max-width:900px){
-  .why-grid{grid-template-columns:1fr;}
+  .about-home{grid-template-columns:1fr;}
+  .about-images{order:-1;}
 }
 @media(max-width:560px){
-  .why-list{grid-template-columns:1fr;}
+  .about-images{grid-template-columns:1fr; grid-template-rows:auto;}
+  .about-images .img-box.tall{grid-row:auto;}
 }
-
-/* ============================================
-   TESTIMONIALS
-   ============================================ */
-.testimonial-wrap{
-  max-width:780px;
-  position:relative;
-}
-.testi-quote{
-  font-family:var(--serif);
-  font-size:clamp(1.5rem,3vw,2.3rem);
-  font-weight:500;
-  line-height:1.35;
-  color:var(--charcoal);
-}
-.testi-author{
-  margin-top:30px;
-  font-size:0.85rem;
-  color:var(--gray);
-}
-.testi-author strong{color:var(--charcoal); font-weight:600;}
-.testi-dots{display:flex; gap:10px; margin-top:36px;}
-.testi-dots button{
-  width:8px; height:8px; border-radius:50%;
-  background:rgba(17,17,17,.15);
-  transition:background .3s var(--ease), transform .3s var(--ease);
-}
-.testi-dots button.active{background:var(--gold); transform:scale(1.2);}
-
-/* ============================================
-   INSIGHTS / BLOG
-   ============================================ */
-.insights-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:clamp(24px,3vw,40px);
-}
-.insight-image{
-  aspect-ratio:4/3;
-  border-radius:3px;
-  overflow:hidden;
-  margin-bottom:20px;
-}
-.insight-image svg{width:100%; height:100%;}
-.insight-meta{
-  font-size:0.72rem;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:10px;
-}
-.insight-card h3{font-size:1.1rem; margin-bottom:14px; line-height:1.3;}
-.insight-link{font-size:0.8rem; font-weight:600;}
-
-@media(max-width:860px){
-  .insights-grid{grid-template-columns:1fr;}
-}
-
-/* ============================================
-   FINAL CTA
-   ============================================ */
-.final-cta{background:var(--beige);}
-.cta-inner{
-  text-align:center;
-  max-width:640px;
-  margin:0 auto;
-}
-.cta-inner h2{margin-bottom:20px;}
-.cta-inner p{font-size:1.05rem; margin-bottom:36px;}
-.cta-actions{display:flex; justify-content:center; gap:18px; flex-wrap:wrap;}
 
 /* ============================================
    CONTACT
@@ -667,7 +426,7 @@ footer{
   border-bottom:1px solid rgba(250,249,246,.12);
 }
 .footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
-.footer-brand .brand-mark{width:40px; height:40px;}
+.footer-brand .brand-logo{width:40px; height:40px;}
 .footer-brand-name{font-family:var(--serif); font-size:1.05rem; color:var(--white); font-weight:600;}
 .footer-tagline{font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-top:2px; display:block;}
 footer .col-title{
@@ -721,11 +480,11 @@ footer .col-list a:hover{color:var(--gold);}
 <header id="siteHeader">
   <div class="wrap nav-row">
     <a href="#home" class="brand">
-      <span class="brand-mark"><img src="./logo.jpeg" alt="Wizard Digitech logo"></span>
-      <span>
-        <span class="brand-name">Wizard Digitech</span>
-        <span class="brand-tagline">Digital Growth Partner</span>
-      </span>
+      <img class="brand-logo" src="./logo.jpeg" alt="Wizard Digitech logo">
+      <div>
+        <div class="brand-name">Wizard Digitech</div>
+        <div class="brand-tagline">Digital Growth Partner</div>
+      </div>
     </a>
     <nav class="primary-nav">
       <a href="#home">Home</a>
@@ -767,26 +526,11 @@ footer .col-list a:hover{color:var(--gold);}
       <p class="lead">We craft meaningful digital strategies and experiences that help businesses grow, connect with their audience, and achieve measurable results.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Start a Project <span class="arrow">→</span></a>
-        <a href="#work" class="btn btn-outline">Our Work <span class="arrow">→</span></a>
+        <a href="./modified/digitalmarketing.html" class="btn btn-outline">Our Work <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="hero-visual reveal in">
-      <svg viewBox="0 0 500 620" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#1c1c1c"/>
-            <stop offset="100%" stop-color="#0a0a0a"/>
-          </linearGradient>
-        </defs>
-        <rect width="500" height="620" fill="url(#heroGrad)"/>
-        <line x1="0" y1="180" x2="500" y2="140" stroke="#A88752" stroke-width="1" opacity="0.5"/>
-        <line x1="0" y1="420" x2="500" y2="470" stroke="#77736D" stroke-width="1" opacity="0.35"/>
-        <circle cx="380" cy="180" r="90" fill="none" stroke="#A88752" stroke-width="1" opacity="0.5"/>
-        <rect x="60" y="260" width="140" height="180" fill="none" stroke="#FAF9F6" stroke-width="1" opacity="0.18"/>
-        <rect x="90" y="300" width="140" height="180" fill="none" stroke="#A88752" stroke-width="1" opacity="0.4"/>
-        <text x="60" y="560" fill="#FAF9F6" opacity="0.85" font-family="Cormorant Garamond, serif" font-size="26">Digital Growth</text>
-        <text x="60" y="586" fill="#77736D" font-family="Inter, sans-serif" font-size="11" letter-spacing="2">STRATEGY · CREATIVE · RESULTS</text>
-      </svg>
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1000&fit=crop&crop=center" alt="Team collaborating on digital marketing strategy" loading="lazy">
       <div class="floating-card">
         <span class="big gold">+200%</span>
         <span class="small">Average Traffic Growth<sup>*</sup></span>
@@ -803,291 +547,41 @@ footer .col-list a:hover{color:var(--gold);}
 </div>
 
 <!-- ============================================
-     ABOUT / INTRODUCTION
+     ABOUT COMPANY (3 images)
      ============================================ -->
 <section id="about" class="section">
-  <div class="wrap about-grid">
-    <div class="reveal">
-      <span class="eyebrow">Who We Are</span>
+  <div class="wrap about-home">
+    <div class="about-text reveal">
+      <span class="eyebrow">About Our Company</span>
       <h2>We turn ambitious ideas into meaningful digital growth.</h2>
-      <p class="body">We combine strategy, creativity, technology and data to build digital experiences that help businesses reach the right audience and achieve measurable results — from first click to lasting customer.</p>
-      <a href="#services" class="service-link btn-outline btn">Discover Our Approach <span class="arrow">→</span></a>
-    </div>
-    <div class="abstract-panel reveal">
-      <svg viewBox="0 0 400 440" preserveAspectRatio="xMidYMid slice">
-        <rect width="400" height="440" fill="#EDE9E2"/>
-        <rect x="40" y="60" width="220" height="280" fill="none" stroke="#111111" stroke-width="1" opacity="0.5"/>
-        <rect x="90" y="120" width="220" height="280" fill="none" stroke="#A88752" stroke-width="1.2"/>
-        <line x1="0" y1="220" x2="400" y2="220" stroke="#77736D" stroke-width="0.6" opacity="0.4"/>
-        <circle cx="310" cy="110" r="42" fill="none" stroke="#111111" stroke-width="1" opacity="0.35"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     SERVICES
-     ============================================ -->
-<section id="services" class="section" style="background:var(--beige);">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">What We Do</span>
-      <h2>Everything your brand needs to grow in the digital world.</h2>
-    </div>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <span class="service-num">01</span>
-        <h3>Digital Strategy</h3>
-        <p>Build a clear roadmap for sustainable online growth, grounded in your business goals.</p>
-        <a href="#contact" class="service-link">Learn more <span>→</span></a>
-      </div>
-      <div class="service-card">
-        <span class="service-num">02</span>
-        <h3>SEO</h3>
-        <p>Improve visibility, rankings, organic traffic and long-term discoverability.</p>
-        <a href="#contact" class="service-link">Learn more <span>→</span></a>
-      </div>
-      <div class="service-card">
-        <span class="service-num">03</span>
-        <h3>Social Media Marketing</h3>
-        <p>Build meaningful communities and increase brand engagement where your audience lives.</p>
-        <a href="#contact" class="service-link">Learn more <span>→</span></a>
-      </div>
-      <div class="service-card">
-        <span class="service-num">04</span>
-        <h3>Paid Advertising</h3>
-        <p>Create targeted campaigns designed to generate qualified leads and sales.</p>
-        <a href="#contact" class="service-link">Learn more <span>→</span></a>
-      </div>
-      <div class="service-card">
-        <span class="service-num">05</span>
-        <h3>Content Marketing</h3>
-        <p>Create useful and engaging content that builds authority and trust over time.</p>
-        <a href="#contact" class="service-link">Learn more <span>→</span></a>
-      </div>
-      <div class="service-card">
-        <span class="service-num">06</span>
-        <h3>Brand Strategy</h3>
-        <p>Create a strong, consistent identity that differentiates your business.</p>
-        <a href="#contact" class="service-link">Learn more <span>→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     WORK / CASE STUDIES
-     ============================================ -->
-<section id="work" class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Selected Work</span>
-      <h2>Ideas, strategy and execution that deliver results.</h2>
-      <p>Real client work is on the way — the projects below are placeholder examples showing how each case study will be presented once your results are added.</p>
-    </div>
-    <div class="work-grid reveal">
-      <div class="work-card">
-        <div class="work-image">
-          <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="500" height="400" fill="#111111"/>
-            <rect x="40" y="40" width="420" height="320" fill="none" stroke="#A88752" stroke-width="1" opacity="0.55"/>
-            <line x1="40" y1="200" x2="460" y2="200" stroke="#77736D" stroke-width="0.6" opacity="0.4"/>
-            <circle cx="380" cy="100" r="50" fill="none" stroke="#FAF9F6" stroke-width="1" opacity="0.25"/>
-          </svg>
+      <p>Wizard Digitech is a premier Digital Marketing and Electronics Repair company dedicated to providing top-quality services in both domains. With a team of certified digital marketing experts and skilled electronics engineers, we offer comprehensive solutions that bridge the gap between digital success and device reliability.</p>
+      <p>From building digital skills and growing online presence to diagnosing and repairing electronic devices, our team combines professional knowledge, practical experience and a commitment to quality service.</p>
+      <div class="stats-inline">
+        <div class="s-item">
+          <div class="num">200+</div>
+          <div class="lbl">Clients served</div>
         </div>
-        <h3>Brand Growth Campaign</h3>
-        <p class="work-meta">Technology · SEO · Paid Media</p>
-        <span class="work-result">Sample Result</span>
-        <span class="placeholder-tag">Placeholder — add real result</span>
-      </div>
-      <div class="work-card">
-        <div class="work-image">
-          <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice">
-            <rect width="500" height="400" fill="#1a1a1a"/>
-            <rect x="60" y="60" width="220" height="280" fill="none" stroke="#EDE9E2" stroke-width="1" opacity="0.3"/>
-            <rect x="120" y="110" width="220" height="280" fill="none" stroke="#A88752" stroke-width="1" opacity="0.6"/>
-          </svg>
+        <div class="s-item">
+          <div class="num">98%</div>
+          <div class="lbl">Satisfaction rate</div>
         </div>
-        <h3>Digital Launch Campaign</h3>
-        <p class="work-meta">E-commerce · Social Media · Performance Marketing</p>
-        <span class="work-result">Sample Result</span>
-        <span class="placeholder-tag">Placeholder — add real result</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     ACHIEVEMENTS
-     ============================================ -->
-<section id="achievements" class="section achievements grain">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Growth You Can Measure</span>
-      <h2>Numbers that reflect real client outcomes.</h2>
-      <p>These figures are placeholders — replace each with your verified numbers before publishing.</p>
-    </div>
-    <div class="stat-grid reveal">
-      <div class="stat-cell">
-        <div class="stat-num">—</div>
-        <div class="stat-label">Happy Clients</div>
-        <div class="stat-note">Add your figure</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">—</div>
-        <div class="stat-label">Projects Delivered</div>
-        <div class="stat-note">Add your figure</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">—</div>
-        <div class="stat-label">Client Satisfaction</div>
-        <div class="stat-note">Add your figure</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">—</div>
-        <div class="stat-label">Years of Experience</div>
-        <div class="stat-note">Add your figure</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     APPROACH
-     ============================================ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Our Approach</span>
-      <h2>A simple process built around meaningful results.</h2>
-    </div>
-    <div class="process-row reveal">
-      <div class="process-step">
-        <span class="process-num">01 — Discover</span>
-        <h3>Understand</h3>
-        <p>Understand the business, audience, goals and challenges before anything else.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-num">02 — Strategize</span>
-        <h3>Plan</h3>
-        <p>Build a clear digital marketing strategy tailored to your growth goals.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-num">03 — Execute</span>
-        <h3>Build</h3>
-        <p>Launch campaigns, content, SEO and advertising with disciplined execution.</p>
-      </div>
-      <div class="process-step">
-        <span class="process-num">04 — Optimize</span>
-        <h3>Improve</h3>
-        <p>Measure performance and continuously refine for stronger results.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     WHY CHOOSE US
-     ============================================ -->
-<section class="section" style="background:var(--beige);">
-  <div class="wrap why-grid">
-    <div class="reveal">
-      <span class="eyebrow">Why Wizard Digitech</span>
-      <h2>More than marketing. A growth partner.</h2>
-    </div>
-    <div class="why-list reveal">
-      <div class="why-item">
-        <h3>Strategic Thinking</h3>
-        <p>Every campaign starts with a clear business objective, not a template.</p>
-      </div>
-      <div class="why-item">
-        <h3>Creative Excellence</h3>
-        <p>Ideas designed to make your brand memorable and distinct.</p>
-      </div>
-      <div class="why-item">
-        <h3>Data Driven</h3>
-        <p>Decisions backed by real performance data, reviewed and refined.</p>
-      </div>
-      <div class="why-item">
-        <h3>Long-Term Growth</h3>
-        <p>Strategies designed for sustainable results, not short-term spikes.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     TESTIMONIALS
-     ============================================ -->
-<section class="section">
-  <div class="wrap">
-    <span class="eyebrow reveal">What Clients Say</span>
-    <div class="testimonial-wrap reveal">
-      <div id="testiSlides"></div>
-      <div class="testi-dots" id="testiDots"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     INSIGHTS / BLOG
-     ============================================ -->
-<section id="insights" class="section" style="background:var(--beige);">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Ideas & Insights</span>
-      <h2>Perspective on strategy, growth and digital craft.</h2>
-    </div>
-    <div class="insights-grid reveal">
-      <article class="insight-card">
-        <div class="insight-image">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="300" fill="#111111"/>
-            <line x1="0" y1="150" x2="400" y2="150" stroke="#A88752" stroke-width="1" opacity="0.5"/>
-            <rect x="50" y="80" width="140" height="140" fill="none" stroke="#FAF9F6" stroke-width="1" opacity="0.2"/>
-          </svg>
+        <div class="s-item">
+          <div class="num">5+</div>
+          <div class="lbl">Years experience</div>
         </div>
-        <span class="insight-meta">Strategy</span>
-        <h3>How Businesses Can Build a Stronger Digital Presence</h3>
-        <a href="#contact" class="insight-link">Read Article →</a>
-      </article>
-      <article class="insight-card">
-        <div class="insight-image">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="300" fill="#1c1c1c"/>
-            <circle cx="300" cy="90" r="60" fill="none" stroke="#A88752" stroke-width="1" opacity="0.5"/>
-          </svg>
-        </div>
-        <span class="insight-meta">Growth</span>
-        <h3>5 Digital Marketing Strategies That Actually Drive Growth</h3>
-        <a href="#contact" class="insight-link">Read Article →</a>
-      </article>
-      <article class="insight-card">
-        <div class="insight-image">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-            <rect width="400" height="300" fill="#0f0f0f"/>
-            <rect x="60" y="60" width="180" height="180" fill="none" stroke="#77736D" stroke-width="1" opacity="0.5"/>
-          </svg>
-        </div>
-        <span class="insight-meta">Data</span>
-        <h3>Why Data Should Be at the Center of Your Marketing Strategy</h3>
-        <a href="#contact" class="insight-link">Read Article →</a>
-      </article>
+      </div>
+      <a href="./modified/About.html" class="btn btn-outline">Learn More About Us <span class="arrow">→</span></a>
     </div>
-  </div>
-</section>
-
-<!-- ============================================
-     FINAL CTA
-     ============================================ -->
-<section class="section final-cta">
-  <div class="wrap cta-inner reveal">
-    <span class="eyebrow">Let's Build Together</span>
-    <h2>Ready to build what's next?</h2>
-    <p>Let's create a digital strategy that turns your ambitions into measurable growth.</p>
-    <div class="cta-actions">
-      <a href="#contact" class="btn btn-primary">Start a Conversation <span class="arrow">→</span></a>
-      <a href="#work" class="btn btn-outline">View Our Work <span class="arrow">→</span></a>
+    <div class="about-images reveal">
+      <div class="img-box tall">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=900&fit=crop&crop=center" alt="Our team at work" loading="lazy">
+      </div>
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center" alt="Digital marketing analytics" loading="lazy">
+      </div>
+      <div class="img-box">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=400&fit=crop&crop=center" alt="Electronics repair technician" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -1095,11 +589,12 @@ footer .col-list a:hover{color:var(--gold);}
 <!-- ============================================
      CONTACT
      ============================================ -->
-<section id="contact" class="section">
+<section id="contact" class="section" style="background:var(--beige);">
   <div class="wrap contact-grid">
     <div class="reveal">
-      <span class="eyebrow">Get In Touch</span>
+      <span class="eyebrow">Contact Us</span>
       <h2>Let's start a conversation.</h2>
+      <p style="margin-top:14px;">Whether you need digital marketing training, marketing services, or professional electronics repair, our team is ready to help.</p>
       <div class="contact-info-list">
         <div class="contact-info-item">
           <span class="label">Phone</span>
@@ -1177,11 +672,11 @@ footer .col-list a:hover{color:var(--gold);}
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <span class="brand-mark"><img src="assets/wp-logo.png" alt="Wizard Digitech logo"></span>
-          <span>
-            <span class="footer-brand-name">Wizard Digitech</span>
-            <span class="footer-tagline">Your Digital Growth Partner</span>
-          </span>
+          <img class="brand-logo" src="./logo.jpeg" alt="Wizard Digitech logo">
+          <div>
+            <div class="footer-brand-name">Wizard Digitech</div>
+            <div class="footer-tagline">Your Digital Growth Partner</div>
+          </div>
         </div>
         <p class="footer-desc">Building meaningful digital experiences for ambitious businesses.</p>
         <div class="social-row">
@@ -1206,12 +701,12 @@ footer .col-list a:hover{color:var(--gold);}
       <div>
         <div class="col-title">Services</div>
         <div class="col-list">
-          <a href="#services">Digital Strategy</a>
-          <a href="#services">SEO</a>
-          <a href="#services">Social Media Marketing</a>
-          <a href="#services">Paid Advertising</a>
-          <a href="#services">Content Marketing</a>
-          <a href="#services">Brand Strategy</a>
+          <a href="./modified/digitalmarketing.html">Digital Strategy</a>
+          <a href="./modified/digitalmarketing.html">SEO</a>
+          <a href="./modified/digitalmarketing.html">Social Media Marketing</a>
+          <a href="./modified/digitalmarketing.html">Paid Advertising</a>
+          <a href="./modified/digitalmarketing.html">Content Marketing</a>
+          <a href="./modified/digitalmarketing.html">Brand Strategy</a>
         </div>
       </div>
       <div>
@@ -1263,43 +758,6 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
-
-// Testimonials — placeholder content, clearly marked
-const testimonials = [
-  {
-    quote: "Placeholder testimonial — replace this with a real client quote once available.",
-    name: "Client Name",
-    role: "Founder / CEO"
-  },
-  {
-    quote: "Placeholder testimonial — add a second real client story here.",
-    name: "Client Name",
-    role: "Marketing Head"
-  }
-];
-const slidesEl = document.getElementById('testiSlides');
-const dotsEl = document.getElementById('testiDots');
-let testiIndex = 0;
-
-function renderTesti() {
-  const t = testimonials[testiIndex];
-  slidesEl.innerHTML = `
-    <p class="testi-quote">${t.quote}</p>
-    <div class="testi-author"><strong>${t.name}</strong><br>${t.role}</div>
-  `;
-  dotsEl.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === testiIndex));
-}
-testimonials.forEach((_, i) => {
-  const b = document.createElement('button');
-  b.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
-  b.addEventListener('click', () => { testiIndex = i; renderTesti(); });
-  dotsEl.appendChild(b);
-});
-renderTesti();
-setInterval(() => {
-  testiIndex = (testiIndex + 1) % testimonials.length;
-  renderTesti();
-}, 6000);
 </script>
 
 </body>
