@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Achievements — Wizard Digitech</title>
+  <title>Electronics Repair — Wizard Digitech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -163,24 +163,6 @@
       opacity: 1;
       transform: scale(1);
     }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-    }
-    .reveal-left.in {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-    }
-    .reveal-right.in {
-      opacity: 1;
-      transform: translateX(0);
-    }
 
     /* ===== NAVBAR ===== */
     header {
@@ -210,6 +192,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
     }
     .brand-mark {
       width: 44px;
@@ -247,7 +230,9 @@
     }
     nav.primary-nav {
       display: flex;
-      gap: 38px;
+      gap: 34px;
+      align-items: center;
+      flex-wrap: nowrap;
     }
     nav.primary-nav a {
       font-size: 0.85rem;
@@ -255,6 +240,8 @@
       color: var(--charcoal);
       position: relative;
       padding: 4px 0;
+      white-space: nowrap;
+      display: inline-block;
     }
     nav.primary-nav a::after {
       content: "";
@@ -276,6 +263,7 @@
       display: flex;
       align-items: center;
       gap: 28px;
+      flex-shrink: 0;
     }
     .hamburger {
       display: none;
@@ -288,6 +276,19 @@
       width: 100%;
       background: var(--charcoal);
       transition: all .35s var(--ease);
+    }
+
+    /* Medium screens: tighten nav so everything fits on one line */
+    @media (max-width: 1200px) and (min-width: 961px) {
+      nav.primary-nav {
+        gap: 22px;
+      }
+      nav.primary-nav a {
+        font-size: 0.78rem;
+      }
+      .brand-tagline {
+        display: none;
+      }
     }
     @media(max-width:960px) {
       nav.primary-nav {
@@ -326,7 +327,7 @@
       align-self: flex-start;
     }
 
-    /* ===== PAGE: ACHIEVEMENTS ===== */
+    /* ===== PAGE: ELECTRONICS REPAIR ===== */
     .page-hero {
       padding: 160px 0 60px;
       background: var(--beige);
@@ -340,192 +341,124 @@
       font-size: 1.1rem;
     }
 
-    /* Stats Grid */
-    .stats-grid {
+    .service-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
     }
-    .stat-item {
+    .service-card {
       background: var(--white);
-      padding: 32px 20px;
       border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
-      border-bottom: 3px solid var(--gold);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
     }
-    .stat-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
     }
-    .stat-item .stat-number {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
-      color: var(--charcoal);
-      line-height: 1.1;
-      font-weight: 600;
+    .service-card .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--beige);
     }
-    .stat-item .stat-number .plus {
-      color: var(--gold);
-      font-size: 0.7em;
+    .service-card .card-body {
+      padding: 24px 24px 28px;
     }
-    .stat-item .stat-label {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 6px;
-    }
-    .stat-item .stat-desc {
-      font-size: 0.78rem;
-      color: var(--gray);
-      margin-top: 8px;
-      line-height: 1.4;
-    }
-    @media(max-width:900px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media(max-width:560px) {
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-      .stat-item {
-        padding: 24px 16px;
-      }
-      .stat-item .stat-number {
-        font-size: 2rem;
-      }
-    }
-
-    /* Certifications */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 30px;
-    }
-    .cert-item {
-      background: var(--white);
-      padding: 28px 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
-    }
-    .cert-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-    }
-    .cert-item .cert-icon {
-      font-size: 2.6rem;
+    .service-card .card-body .icon {
+      display: inline-block;
+      font-size: 1.6rem;
       margin-bottom: 10px;
     }
-    .cert-item .cert-img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin: 0 auto 12px;
-      border-radius: 8px;
-      background: var(--beige);
-      padding: 12px;
+    .service-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
     }
-    .cert-item h4 {
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--charcoal);
-    }
-    .cert-item p {
+    .service-card .sub {
       font-size: 0.78rem;
-      margin-top: 4px;
-    }
-    @media(max-width:900px) {
-      .cert-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media(max-width:560px) {
-      .cert-grid {
-        grid-template-columns: 1fr;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    /* Impact Row */
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 30px;
-    }
-    .impact-item {
-      background: var(--beige);
-      padding: 30px 20px;
-      border-radius: 8px;
-      text-align: center;
-      transition: transform .3s var(--ease);
-      position: relative;
-      overflow: hidden;
-    }
-    .impact-item:hover {
-      transform: translateY(-4px);
-    }
-    .impact-item .impact-img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin: 0 auto 12px;
-      border: 3px solid var(--gold);
-    }
-    .impact-item .impact-number {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 3.2vw, 3rem);
       color: var(--gold);
       font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
-    .impact-item h4 {
-      font-size: 1rem;
-      margin: 6px 0 4px;
+    .service-card p {
+      font-size: 0.92rem;
+      margin-bottom: 12px;
     }
-    .impact-item p {
-      font-size: 0.85rem;
+    .service-card .brand-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .service-card .brand-tags span {
+      font-size: 0.68rem;
+      background: var(--beige);
+      padding: 2px 12px;
+      border-radius: 20px;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
     }
     @media(max-width:900px) {
-      .impact-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
     @media(max-width:560px) {
-      .impact-grid {
+      .service-grid {
         grid-template-columns: 1fr;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
+      }
+      .service-card .card-img {
+        height: 160px;
       }
     }
 
-    /* Hero Image */
-    .hero-image-wrap {
+    /* Why Choose */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
       margin-top: 30px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     }
-    .hero-image-wrap img {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: cover;
+    .why-item {
+      background: var(--white);
+      padding: 30px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      text-align: center;
+      border-top: 3px solid var(--gold);
+      transition: transform .3s var(--ease);
+    }
+    .why-item:hover {
+      transform: translateY(-4px);
+    }
+    .why-item .icon-big {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+    .why-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .why-item p {
+      font-size: 0.9rem;
+    }
+    @media(max-width:900px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media(max-width:560px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* CTA */
-    .cta-achievements {
+    .cta-repair {
       background: var(--charcoal);
       color: var(--white);
       text-align: center;
@@ -533,16 +466,16 @@
       border-radius: 8px;
       margin-top: 20px;
     }
-    .cta-achievements h2 {
+    .cta-repair h2 {
       color: var(--white);
       margin-bottom: 12px;
     }
-    .cta-achievements p {
+    .cta-repair p {
       color: rgba(250, 249, 246, .7);
       max-width: 540px;
       margin: 0 auto 30px;
     }
-    .cta-achievements .btn-group {
+    .cta-repair .btn-group {
       display: flex;
       justify-content: center;
       gap: 18px;
@@ -675,10 +608,11 @@
       <nav class="primary-nav">
         <a href="index.html">Home</a>
         <a href="digitalmarketing.html">Digital Marketing</a>
-        <a href="electronicrepairs.html">Electronic Repairs</a>
+        <a href="electronicrepairs.html" class="active">Electronic Repairs</a>
         <a href="about.html">About</a>
         <a href="team.html">Team</a>
-        <a href="Archeivements.html" class="active">Achievements</a>
+        <a href="Archeivements.html">Achievements</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
       <div class="nav-right">
         <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
@@ -697,6 +631,7 @@
     <a href="about.html">About</a>
     <a href="team.html">Team</a>
     <a href="Archeivements.html">Achievements</a>
+    <a href="#contact">Contact</a>
     <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
   </div>
 
@@ -704,156 +639,182 @@
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Wizard Digitech</span>
-      <h1>Our Achievements</h1>
-      <p class="subtitle">Numbers That Speak for Our Quality, Dedication &amp; Expertise — we measure our success through the people we've trained, devices we've repaired, customers we've served, and the standards we've maintained.</p>
+      <h1>Electronics Repair Services<br><span class="gold">— fix it right, fix it fast</span></h1>
+      <p class="subtitle">Professional repair solutions for smartphones, laptops, desktops, tablets, audio devices, gaming consoles, cameras, drones and more.</p>
     </div>
   </section>
 
-  <!-- ===== HERO IMAGE ===== -->
-  <section style="padding-top: 0;">
+  <!-- ===== SERVICES GRID ===== -->
+  <section class="section">
     <div class="wrap">
-      <div class="hero-image-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=400&fit=crop&crop=center" alt="Our team achieving excellence" loading="lazy">
+      <div class="service-grid">
+
+        <!-- 1. Smartphone Repair -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=400&fit=crop&crop=center" alt="Smartphone Repair" loading="lazy">
+          <div class="card-body">
+            <span class="icon">📱</span>
+            <h3>Smartphone Repair</h3>
+            <div class="sub">Complete Smartphone Repair Solutions</div>
+            <p>Screen replacement, battery replacement, charging port repair and water-damage recovery.</p>
+            <div class="brand-tags">
+              <span>Apple</span><span>Samsung</span><span>OnePlus</span><span>Xiaomi</span>
+              <span>Oppo</span><span>Vivo</span><span>Google Pixel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Laptop Repair -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=400&fit=crop&crop=center" alt="Laptop Repair" loading="lazy">
+          <div class="card-body">
+            <span class="icon">💻</span>
+            <h3>Laptop Repair</h3>
+            <div class="sub">Professional Laptop Repair</div>
+            <p>Motherboard repair, keyboard replacement, screen repair, data recovery, hardware upgrades and virus removal.</p>
+          </div>
+        </div>
+
+        <!-- 3. Desktop PC Repair -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&h=400&fit=crop&crop=center" alt="Desktop PC Repair" loading="lazy">
+          <div class="card-body">
+            <span class="icon">🖥️</span>
+            <h3>Desktop PC Repair</h3>
+            <div class="sub">Reliable Desktop Solutions</div>
+            <p>Hardware troubleshooting, component replacement and system optimization.</p>
+          </div>
+        </div>
+
+        <!-- 4. Tablet Repair -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&h=400&fit=crop&crop=center" alt="Tablet Repair" loading="lazy">
+          <div class="card-body">
+            <span class="icon">📟</span>
+            <h3>Tablet Repair</h3>
+            <div class="sub">Tablet Repair &amp; Maintenance</div>
+            <p>Screen repair, battery replacement and charging issues.</p>
+            <div class="brand-tags">
+              <span>iPad</span><span>Samsung Tab</span><span>Lenovo Tab</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Audio Devices -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop&crop=center" alt="Audio Devices" loading="lazy">
+          <div class="card-body">
+            <span class="icon">🎧</span>
+            <h3>Audio Devices</h3>
+            <div class="sub">Audio Equipment Repair</div>
+            <p>Headphones, earphones and Bluetooth speakers — repair and maintenance.</p>
+          </div>
+        </div>
+
+        <!-- 6. Smartwatches -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&h=400&fit=crop&crop=center" alt="Smartwatches" loading="lazy">
+          <div class="card-body">
+            <span class="icon">⌚</span>
+            <h3>Smartwatches &amp; Wearables</h3>
+            <div class="sub">Wearable Device Repair</div>
+            <p>Screen repair, battery replacement and charging issue solutions.</p>
+          </div>
+        </div>
+
+        <!-- 7. Gaming Consoles -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?w=600&h=400&fit=crop&crop=center" alt="Gaming Consoles" loading="lazy">
+          <div class="card-body">
+            <span class="icon">🎮</span>
+            <h3>Gaming Consoles</h3>
+            <div class="sub">Gaming Console Repair</div>
+            <p>PlayStation PS4, PS5, Xbox, Nintendo Switch — repair and maintenance.</p>
+          </div>
+        </div>
+
+        <!-- 8. Component-Level Repair -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop&crop=center" alt="Component-Level Repair" loading="lazy">
+          <div class="card-body">
+            <span class="icon">🔬</span>
+            <h3>Component-Level Repair</h3>
+            <div class="sub">Advanced Electronics Repair</div>
+            <p>IC reballing, micro-soldering and logic-board diagnosis.</p>
+          </div>
+        </div>
+
+        <!-- 9. Camera & Drone -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop&crop=center" alt="Camera & Drone Repair" loading="lazy">
+          <div class="card-body">
+            <span class="icon">📷</span>
+            <h3>Camera &amp; Drone</h3>
+            <div class="sub">Camera &amp; Drone Repair</div>
+            <p>DSLR cameras, action cameras, GoPro and drones.</p>
+          </div>
+        </div>
+
+        <!-- 10. Data Recovery -->
+        <div class="service-card reveal-scale">
+          <img class="card-img" src="https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=600&h=400&fit=crop&crop=center" alt="Data Recovery" loading="lazy">
+          <div class="card-body">
+            <span class="icon">💾</span>
+            <h3>Data Recovery</h3>
+            <div class="sub">Recover Your Important Data</div>
+            <p>Hard drives, SSDs, memory cards and USB drives.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===== STATS GRID ===== -->
-  <section class="section" style="padding-top: 40px;">
-    <div class="wrap">
-      <div class="stats-grid">
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">15,000<span class="plus">+</span></div>
-          <div class="stat-label">Devices Repaired</div>
-          <div class="stat-desc">Electronic devices successfully repaired with professional service and technical expertise.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">2,500<span class="plus">+</span></div>
-          <div class="stat-label">Students Trained</div>
-          <div class="stat-desc">Students trained and certified through practical digital marketing programs.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">98<span class="plus">%</span></div>
-          <div class="stat-label">Success Rate</div>
-          <div class="stat-desc">Overall service and training success rate.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">4.9<span class="plus">★</span></div>
-          <div class="stat-label">Customer Rating</div>
-          <div class="stat-desc">Average customer satisfaction rating.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">15<span class="plus">+</span></div>
-          <div class="stat-label">Industry Awards</div>
-          <div class="stat-desc">Awards for excellence in digital marketing and repair services.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">5,000<span class="plus">+</span></div>
-          <div class="stat-label">Happy Clients</div>
-          <div class="stat-desc">Satisfied customers across India.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">50<span class="plus">+</span></div>
-          <div class="stat-label">Certified Engineers</div>
-          <div class="stat-desc">Professional certified repair technicians.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">10<span class="plus">+</span></div>
-          <div class="stat-label">Google Partners</div>
-          <div class="stat-desc">Google-certified digital marketers.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">10<span class="plus">+</span></div>
-          <div class="stat-label">Years of Excellence</div>
-          <div class="stat-desc">Years of dedicated service.</div>
-        </div>
-        <div class="stat-item reveal-scale">
-          <div class="stat-number">22<span class="plus">+</span></div>
-          <div class="stat-label">Cities Served</div>
-          <div class="stat-desc">Major cities across India.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CERTIFICATIONS ===== -->
+  <!-- ===== WHY CHOOSE US ===== -->
   <section class="section" style="background: var(--beige);">
     <div class="wrap">
       <div class="team-section-title reveal">
-        <span class="eyebrow">Certifications &amp; Recognition</span>
-        <h2>Google Partner &amp; HubSpot Certified</h2>
-        <p style="max-width: 600px; margin: 10px auto 0;">We are proud to be recognized as industry leaders with these prestigious certifications.</p>
+        <span class="eyebrow">Why Choose Our Services?</span>
+        <h2>Expertise you can trust</h2>
       </div>
-      <div class="cert-grid">
-        <div class="cert-item reveal-scale">
-          <img class="cert-img" src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=200&h=200&fit=crop&crop=center" alt="Google Partner" loading="lazy">
-          <h4>Google Partner Agency</h4>
-          <p>Certified Google Partner</p>
+      <div class="why-grid">
+        <div class="why-item reveal-scale">
+          <div class="icon-big">🧠</div>
+          <h3>Expert Knowledge</h3>
+          <p>Professional digital marketing experts and skilled electronics engineers.</p>
         </div>
-        <div class="cert-item reveal-scale">
-          <img class="cert-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=200&h=200&fit=crop&crop=center" alt="HubSpot Certified" loading="lazy">
-          <h4>HubSpot Certified Agency</h4>
-          <p>HubSpot Certified Partner</p>
+        <div class="why-item reveal-scale">
+          <div class="icon-big">🛠️</div>
+          <h3>Practical Approach</h3>
+          <p>Hands-on digital marketing training and professional technical repair.</p>
         </div>
-        <div class="cert-item reveal-scale">
-          <img class="cert-img" src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=200&h=200&fit=crop&crop=center" alt="Apple Certified" loading="lazy">
-          <h4>Apple Certified Service Provider</h4>
-          <p>Apple Authorized Service</p>
+        <div class="why-item reveal-scale">
+          <div class="icon-big">📋</div>
+          <h3>Wide Range of Services</h3>
+          <p>From digital marketing campaigns to advanced component-level electronics repair.</p>
         </div>
-        <div class="cert-item reveal-scale">
-          <img class="cert-img" src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=200&h=200&fit=crop&crop=center" alt="Samsung Authorized" loading="lazy">
-          <h4>Samsung Authorized Service Partner</h4>
-          <p>Samsung Certified Service</p>
+        <div class="why-item reveal-scale">
+          <div class="icon-big">⭐</div>
+          <h3>Quality-Focused Service</h3>
+          <p>We focus on quality parts, professional expertise and customer satisfaction.</p>
         </div>
-      </div>
-      <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--gray);">Our commitment to quality and excellence has earned us these prestigious certifications, ensuring you receive world-class services.</p>
-    </div>
-  </section>
-
-  <!-- ===== IMPACT ===== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="team-section-title reveal">
-        <span class="eyebrow">Our Impact</span>
-        <h2>Making a difference</h2>
-      </div>
-      <div class="impact-grid">
-        <div class="impact-item reveal-left">
-          <img class="impact-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=200&h=200&fit=crop&crop=center" alt="Devices repaired" loading="lazy">
-          <div class="impact-number">15,000+</div>
-          <h4>Devices Repaired</h4>
-          <p>Helping customers restore and extend the life of their electronic devices.</p>
-        </div>
-        <div class="impact-item reveal-scale">
-          <img class="impact-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=200&h=200&fit=crop&crop=center" alt="Students trained" loading="lazy">
-          <div class="impact-number">2,500+</div>
-          <h4>Students Trained</h4>
-          <p>Providing practical digital marketing knowledge and professional training.</p>
-        </div>
-        <div class="impact-item reveal-scale">
-          <img class="impact-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=200&h=200&fit=crop&crop=center" alt="Happy clients" loading="lazy">
-          <div class="impact-number">5,000+</div>
-          <h4>Happy Clients</h4>
-          <p>Building lasting relationships through quality service and customer satisfaction.</p>
-        </div>
-        <div class="impact-item reveal-right">
-          <img class="impact-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=200&fit=crop&crop=center" alt="Cities served" loading="lazy">
-          <div class="impact-number">22+</div>
-          <h4>Cities Served</h4>
-          <p>Extending our services across major cities throughout India.</p>
+        <div class="why-item reveal-scale">
+          <div class="icon-big">🔄</div>
+          <h3>Comprehensive Solutions</h3>
+          <p>One destination for both digital marketing expertise and electronics repair.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== CTA ===== -->
-  <section class="section" style="padding-top: 0;">
+  <section class="section">
     <div class="wrap">
-      <div class="cta-achievements reveal">
-        <h2>Experience Quality. Expertise. Excellence.</h2>
-        <p>Whether you are looking to develop your digital marketing skills or need professional electronics repair, our team is ready to help.</p>
+      <div class="cta-repair reveal">
+        <h2>Ready to Get Started?</h2>
+        <p>Whether you want to learn digital marketing, grow your business, or repair your electronic device, our team is ready to help.</p>
         <div class="btn-group">
-          <a href="digitalmarketing.html" class="btn btn-outline" style="border-color:rgba(250,249,246,0.4); color:var(--white);">Explore Our Services <span class="arrow">→</span></a>
+          <a href="digitalmarketing.html" class="btn btn-outline" style="border-color:rgba(250,249,246,0.4); color:var(--white);">Explore Services <span class="arrow">→</span></a>
           <a href="index.html#contact" class="btn btn-primary" style="background:var(--gold); color:var(--charcoal);">Contact Us <span class="arrow">→</span></a>
         </div>
         <p style="margin-top: 30px; font-size:0.85rem; color:rgba(250,249,246,0.5);">digitalmonk.org — where expertise meets reliability</p>
@@ -928,7 +889,7 @@
     }));
 
     // ===== SCROLL REVEAL =====
-    const revealElements = document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

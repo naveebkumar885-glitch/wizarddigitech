@@ -112,7 +112,7 @@
       padding:16px 0;
     }
     .nav-row{display:flex; align-items:center; justify-content:space-between; gap:32px;}
-    .brand{display:flex; align-items:center; gap:12px;}
+    .brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
     .brand-mark{
       width:44px; height:44px;
       background:var(--white);
@@ -139,13 +139,20 @@
       color:var(--gray);
       margin-top:2px;
     }
-    nav.primary-nav{display:flex; gap:38px;}
+    nav.primary-nav{
+      display:flex;
+      gap:34px;
+      align-items:center;
+      flex-wrap:nowrap;
+    }
     nav.primary-nav a{
       font-size:0.85rem;
       font-weight:500;
       color:var(--charcoal);
       position:relative;
       padding:4px 0;
+      white-space:nowrap;
+      display:inline-block;
     }
     nav.primary-nav a::after{
       content:"";
@@ -156,9 +163,16 @@
     }
     nav.primary-nav a:hover::after{width:100%;}
     nav.primary-nav a.active::after{width:100%;}
-    .nav-right{display:flex; align-items:center; gap:28px;}
+    .nav-right{display:flex; align-items:center; gap:28px; flex-shrink:0;}
     .hamburger{display:none; flex-direction:column; gap:5px; width:26px;}
     .hamburger span{height:1.5px; width:100%; background:var(--charcoal); transition:all .35s var(--ease);}
+
+    /* Medium screens: tighten nav so everything fits on one line */
+    @media (max-width:1200px) and (min-width:961px){
+      nav.primary-nav{gap:22px;}
+      nav.primary-nav a{font-size:0.78rem;}
+      .brand-tagline{display:none;}
+    }
     @media(max-width:960px){
       nav.primary-nav{display:none;}
       .nav-right .btn-primary{display:none;}
@@ -325,8 +339,10 @@
       <a href="index.html">Home</a>
       <a href="digitalmarketing.html" class="active">Digital Marketing</a>
       <a href="electronicrepairs.html">Electronic Repairs</a>
+      <a href="./team.html">Team</a>
       <a href="about.html">About</a>
       <a href="Archeivements.html">Achievements</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
     <div class="nav-right">
       <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
