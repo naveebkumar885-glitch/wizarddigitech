@@ -705,6 +705,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
+      margin-bottom: 50px;
     }
     .detail-card {
       background: var(--beige);
@@ -742,6 +743,14 @@
       font-weight: 600;
       color: var(--charcoal);
       line-height: 1.2;
+    }
+    /* CTA button under details cards */
+    .details-cta {
+      text-align: center;
+    }
+    .details-cta .btn {
+      padding: 16px 36px;
+      font-size: 0.9rem;
     }
     @media(max-width: 900px) {
       .details-grid { grid-template-columns: 1fr 1fr; }
@@ -1267,7 +1276,6 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
           <div class="detail-title">Course Duration</div>
-          <div class="detail-value">[To be updated]</div>
         </div>
 
         <div class="detail-card reveal">
@@ -1275,7 +1283,6 @@
             <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
           <div class="detail-title">Training Format</div>
-          <div class="detail-value">[Online / Offline / Hybrid]</div>
         </div>
 
         <div class="detail-card reveal">
@@ -1283,7 +1290,7 @@
             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
           <div class="detail-title">Schedule</div>
-          <div class="detail-value">[To be updated]</div>
+          
         </div>
 
         <div class="detail-card reveal">
@@ -1291,8 +1298,16 @@
             <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <div class="detail-title">Course Fee</div>
-          <div class="detail-value">[To be updated]</div>
         </div>
+      </div>
+
+      <!-- 👇 ADDED: Contact button for more info -->
+      <div class="details-cta reveal">
+        <a href="https://wa.me/917097754200?text=Hi%20Wizard%20Digitech%2C%20I%27d%20like%20more%20information%20about%20the%20Digital%20Marketing%20Training%20course%20details." 
+           target="_blank" rel="noopener" 
+           class="btn btn-primary" id="get">
+          Contact for more information <span class="arrow">→</span>
+        </a>
       </div>
     </div>
   </section>

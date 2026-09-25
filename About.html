@@ -391,11 +391,10 @@
       font-size: 1.02rem;
       margin-bottom: 20px;
       line-height: 1.7;
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-      -ms-hyphens: auto;
+      text-align: left;           /* fixed: was justify */
+      hyphens: none;              /* fixed: no auto hyphenation */
+      -webkit-hyphens: none;
+      -ms-hyphens: none;
       overflow-wrap: break-word;
       word-wrap: break-word;
     }
@@ -419,11 +418,6 @@
       .who-intro-split { grid-template-columns: 1fr; gap: 40px; margin-bottom: 50px; }
       .who-intro-split .intro-img { order: -1; }
       .who-intro-split .intro-img img { aspect-ratio: 16 / 10; }
-      .who-intro-split .intro-text p {
-        text-align: left;
-        hyphens: none;
-        -webkit-hyphens: none;
-      }
     }
 
     /* Founder cards */
@@ -471,15 +465,13 @@
       font-size: 0.92rem;
       color: var(--gray);
       line-height: 1.6;
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-      -ms-hyphens: auto;
+      text-align: left;           /* fixed */
+      hyphens: none;              /* fixed */
+      -webkit-hyphens: none;
+      -ms-hyphens: none;
     }
     @media(max-width:800px) {
       .founders-grid { grid-template-columns: 1fr; }
-      .founder-card .founder-desc { text-align: left; hyphens: none; }
     }
 
     /* ============================================================
@@ -606,7 +598,7 @@
     }
     .contact-detail-text a:hover { color: var(--gold); }
 
-    /* ADDED: WhatsApp block styling */
+    /* WhatsApp block styling */
     .contact-social-block {
       margin-top: 32px; 
       display: flex; 
@@ -909,10 +901,9 @@
       </h1>
       <p class="subtitle">A Vijayawada-based business bringing together digital, creative and technology solutions under one brand.</p>
     </div>
-    <!-- Added Hero Image Placeholder -->
+    <!-- Hero Image -->
     <div class="hero-img-wrapper">
-      <!-- Replace 'YOUR_IMAGE_HERE.png' with the actual filename of your image -->
-      <img src="./about.png" id="g">
+      <img src="./about.png" id="g" alt="About Wizard Digitech">
     </div>
   </section>
 
@@ -929,7 +920,7 @@
           <p>At Wizard Digitech, we believe that good solutions begin with understanding. Our approach is centred on listening to what our customers need, identifying the right direction and delivering solutions that are useful, reliable and relevant.</p>
         </div>
         <div class="intro-img reveal">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=1000&fit=crop&crop=center" alt="Wizard Digitech workspace" loading="lazy">
+          <img src="./about2.png" alt="Wizard Digitech workspace" loading="lazy">
         </div>
       </div>
 
@@ -948,7 +939,7 @@
 
         <div class="founder-card reveal">
           <div class="founder-img">
-            <img src="./madam.png" alt="T.S.L. Nishitha" loading="lazy">
+            <img src="./mad.png" alt="T.S.L. Nishitha" loading="lazy" id="mad">
           </div>
           <div class="founder-body">
             <div class="founder-name">T.S.L. Nishitha</div>
@@ -1119,7 +1110,7 @@
             </div>
           </div>
 
-          <!-- ADDED: WhatsApp Chat Section -->
+          <!-- WhatsApp Chat Section -->
           <div class="contact-social-block">
             <p class="contact-social-note">Prefer a quick chat? Reach us on WhatsApp and we'll get back to you right away.</p>
             <a href="https://wa.me/917097754200?text=Hi%20Wizard%20Digitech%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
