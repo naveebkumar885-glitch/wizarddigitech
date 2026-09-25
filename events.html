@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Work — Wizard Digitech</title>
+  <title>Event & Party Planning — Wizard Digitech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -287,7 +287,7 @@
     .mobile-menu .btn { margin-top: 28px; align-self: flex-start; }
 
     /* ============================================================
-       HERO SECTION
+       HERO SECTION (REBUILT & FIXED)
        ============================================================ */
     .page-hero {
       padding: 160px 0 80px;
@@ -325,7 +325,7 @@
     }
     .hero-img-wrapper img {
       width: 100%;
-      max-width: 700px;
+      max-width: 600px;
       height: auto;
       display: block;
       object-fit: contain;
@@ -354,150 +354,357 @@
     }
 
     /* ============================================================
-       CLIENTS SECTION
+       OUR ATTENTION TO DETAIL
        ============================================================ */
-    .clients-section {
+    .detail-section {
       background: var(--white);
       padding: min(6vw, 80px) 0;
     }
-    .clients-header {
+    .detail-header {
       text-align: center;
       margin-bottom: 50px;
     }
-    .clients-header h2 {
-      margin-bottom: 12px;
-    }
-    .clients-header p {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.02rem;
-    }
-    .clients-grid {
+    .detail-header h2 { margin-bottom: 12px; }
+    .detail-header p { max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+    .detail-flow {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: start;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .detail-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .detail-step .step-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(168, 135, 82, .12);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); margin-bottom: 16px;
+    }
+    .detail-step .step-icon svg {
+      width: 26px; height: 26px; stroke: currentColor; fill: none;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .detail-step .step-title {
+      font-family: var(--serif); font-size: 1.15rem;
+      font-weight: 600; color: var(--charcoal); margin-bottom: 8px;
+    }
+    .detail-step .step-desc {
+      font-size: 0.82rem; color: var(--gray);
+      line-height: 1.55; max-width: 200px;
+    }
+    .detail-arrow {
+      display: flex; align-items: center; justify-content: center;
+      padding-top: 20px; color: var(--gold);
+    }
+    .detail-arrow svg {
+      width: 22px; height: 22px; stroke: currentColor; fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+    }
+    @media(max-width: 900px) {
+      .detail-flow { grid-template-columns: 1fr; gap: 24px; }
+      .detail-arrow { display: none; }
+      .detail-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 16px; }
+      .detail-step .step-icon { margin-bottom: 0; flex: none; }
+      .detail-step .step-desc { max-width: none; }
+    }
+
+    /* ============================================================
+       EVENT SERVICES (WITH SLIDE-UP REVEAL ANIMATION)
+       ============================================================ */
+    .events-section {
+      background: var(--beige);
+      padding: min(6vw, 80px) 0;
+    }
+    .events-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .events-header h2 { margin-bottom: 12px; }
+    .events-header p { max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-    .client-card {
+    .event-card {
       background: var(--white);
       border: 1px solid rgba(17, 17, 17, .08);
       border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      overflow: hidden;
       transition: all .4s var(--ease);
       box-shadow: 0 6px 24px -12px rgba(17, 17, 17, .08);
-      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 380px; /* Fixed height for consistency */
     }
-    .client-card:hover {
+    .event-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 24px 48px -16px rgba(17, 17, 17, .14);
       border-color: rgba(168, 135, 82, .3);
     }
-    .client-card .client-logo {
+    .event-card .event-img {
       width: 100%;
-      height: 80px;
-      margin-bottom: 16px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transition: transform 0.6s cubic-bezier(.4, 0, .2, 1);
+      overflow: hidden;
+    }
+    .event-card .event-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    /* The reveal content */
+    .event-card .event-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 24px;
+      z-index: 2;
+      transform: translateY(calc(100% - 80px)); /* Show only the title initially */
+      transition: transform 0.6s cubic-bezier(.4, 0, .2, 1);
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .event-card:hover .event-content {
+      transform: translateY(0);
+    }
+    .event-card .event-content .event-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-bottom: 1px solid rgba(250, 249, 246, 0.15);
+      padding-bottom: 12px;
+    }
+    .event-card .event-content .event-num {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.8;
+    }
+    .event-card .event-content .event-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .event-card .event-content .event-desc {
+      font-size: 0.85rem;
+      color: rgba(250, 249, 246, 0.7);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .event-card .event-content .event-link {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      transition: color .3s var(--ease);
+      align-self: flex-start;
+      margin-top: auto;
     }
-    .client-card .client-logo img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
+    .event-card .event-content .event-link:hover {
+      color: var(--gold-light);
     }
-    .client-card .client-name {
+    .event-card .event-content .event-link .arrow {
+      transition: transform .35s var(--ease);
+    }
+    .event-card .event-content .event-link:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    @media(max-width: 900px) {
+      .events-grid { grid-template-columns: 1fr 1fr; }
+      .event-card { height: 400px; }
+    }
+    @media(max-width: 600px) {
+      .events-grid { grid-template-columns: 1fr; }
+      .event-card { height: 350px; }
+    }
+
+    /* ============================================================
+       OCCASIONS WE CELEBRATE
+       ============================================================ */
+    .occasions-section {
+      background: var(--white);
+      padding: min(6vw, 80px) 0;
+    }
+    .occasions-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .occasions-header h2 { margin-bottom: 12px; }
+    .occasions-header p { max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+    .occasions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .occasion-card {
+      background: var(--beige);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+      transition: all .4s var(--ease);
+    }
+    .occasion-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -16px rgba(17, 17, 17, .14);
+    }
+    .occasion-card .occ-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      color: var(--gold);
+    }
+    .occasion-card .occ-icon svg {
+      width: 100%; height: 100%; stroke: currentColor; fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .occasion-card .occ-title {
       font-family: var(--serif);
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--charcoal);
-      line-height: 1.2;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-    .client-card .client-caption {
-      font-size: 0.75rem;
+    .occasion-card .occ-desc {
+      font-size: 0.82rem;
       color: var(--gray);
-      line-height: 1.4;
-      font-weight: 400;
-    }
-    @media(max-width: 1100px) {
-      .clients-grid { grid-template-columns: repeat(4, 1fr); }
+      line-height: 1.55;
     }
     @media(max-width: 900px) {
-      .clients-grid { grid-template-columns: repeat(3, 1fr); }
+      .occasions-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media(max-width: 600px) {
-      .clients-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media(max-width: 400px) {
-      .clients-grid { grid-template-columns: 1fr; }
+    @media(max-width: 500px) {
+      .occasions-grid { grid-template-columns: 1fr; }
     }
 
     /* ============================================================
-       APPROACH SECTION
+       HOW WE WORK (PROCESS)
        ============================================================ */
-    .approach-section {
+    .process-section {
       background: var(--beige);
       padding: min(6vw, 80px) 0;
     }
-    .approach-header {
+    .process-header {
       text-align: center;
       margin-bottom: 50px;
     }
-    .approach-header h2 {
-      margin-bottom: 12px;
-    }
-    .approach-header p {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.02rem;
-    }
-    .approach-flow {
+    .process-header h2 { margin-bottom: 12px; }
+    .process-header p { max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+    .process-flow {
       display: grid;
       grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
       align-items: start;
       gap: 8px;
     }
-    .approach-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .approach-step .step-icon {
+    .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .process-step .step-icon {
       width: 60px; height: 60px; border-radius: 50%;
-      background: rgba(168, 135, 82, .15);
+      background: rgba(168, 135, 82, .12);
       display: flex; align-items: center; justify-content: center;
       color: var(--gold); margin-bottom: 16px;
     }
-    .approach-step .step-icon svg {
+    .process-step .step-icon svg {
       width: 26px; height: 26px; stroke: currentColor; fill: none;
       stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
     }
-    .approach-step .step-title {
+    .process-step .step-title {
       font-family: var(--serif); font-size: 1.15rem;
       font-weight: 600; color: var(--charcoal); margin-bottom: 8px;
     }
-    .approach-step .step-desc {
+    .process-step .step-desc {
       font-size: 0.82rem; color: var(--gray);
       line-height: 1.55; max-width: 160px;
     }
-    .approach-arrow {
+    .process-arrow {
       display: flex; align-items: center; justify-content: center;
       padding-top: 20px; color: var(--gold);
     }
-    .approach-arrow svg {
+    .process-arrow svg {
       width: 22px; height: 22px; stroke: currentColor; fill: none;
       stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
     }
     @media(max-width: 900px) {
-      .approach-flow { grid-template-columns: 1fr; gap: 24px; }
-      .approach-arrow { display: none; }
-      .approach-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 16px; }
-      .approach-step .step-icon { margin-bottom: 0; flex: none; }
-      .approach-step .step-desc { max-width: none; }
+      .process-flow { grid-template-columns: 1fr; gap: 24px; }
+      .process-arrow { display: none; }
+      .process-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 16px; }
+      .process-step .step-icon { margin-bottom: 0; flex: none; }
+      .process-step .step-desc { max-width: none; }
     }
 
     /* ============================================================
-       CTA / CONTACT SECTION
+       WHY WIZARD DIGITECH
+       ============================================================ */
+    .why-section {
+      background: var(--white);
+      padding: min(6vw, 80px) 0;
+    }
+    .why-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .why-header h2 { margin-bottom: 12px; }
+    .why-header p { max-width: 600px; margin: 0 auto; font-size: 1.02rem; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      background: var(--beige);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+      transition: all .4s var(--ease);
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -16px rgba(17, 17, 17, .14);
+    }
+    .why-card .why-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 16px;
+      color: var(--gold);
+    }
+    .why-card .why-icon svg {
+      width: 100%; height: 100%; stroke: currentColor; fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .why-card .why-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .why-card .why-desc {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+    @media(max-width: 900px) {
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width: 500px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       CONTACT SECTION
        ============================================================ */
     .contact-section { background: var(--white); padding: min(6vw, 80px) 0; }
     .contact-card {
@@ -806,7 +1013,7 @@
           <div class="menu" role="menu">
             <span class="menu-label">What we offer</span>
 
-            <a href="./digitalmarketing.html" role="menuitem">
+            <a href="./digitalsolution.html" role="menuitem">
               <span class="icon">⚡</span>
               <span class="item-text">
                 <span class="title">Digital Solutions</span>
@@ -814,7 +1021,7 @@
               </span>
             </a>
 
-            <a href="./digitalmarketingtraining.html" role="menuitem">
+            <a href="./Dm.html" role="menuitem">
               <span class="icon">🎓</span>
               <span class="item-text">
                 <span class="title">Digital Marketing Training</span>
@@ -822,7 +1029,7 @@
               </span>
             </a>
 
-            <a href="./electronicrepairs.html" role="menuitem">
+            <a href="./Technology.html" role="menuitem">
               <span class="icon">🔧</span>
               <span class="item-text">
                 <span class="title">Technology Solutions</span>
@@ -840,7 +1047,6 @@
           </div>
         </div>
 
-        <!-- "Work" link removed from nav -->
         <a href="Archeivements.html">Achievements</a>
         <a href="team.html">Team</a>
         <a href="index.html#contact">Contact</a>
@@ -872,198 +1078,313 @@
       </div>
     </div>
 
-    <!-- "Work" link removed from mobile menu -->
     <a href="Archeivements.html">Achievements</a>
     <a href="team.html">Team</a>
     <a href="index.html#contact">Contact</a>
     <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
   </div>
 
-  <!-- ===== HERO SECTION ===== -->
+  <!-- ===== HERO SECTION (REBUILT & FIXED) ===== -->
   <section class="page-hero">
     <div class="hero-content">
-      <span class="eyebrow">Our Work</span>
+      <span class="eyebrow">Event &amp; Party Planning</span>
       <h1>
-        <span class="line">Brands We've</span>
-        <span class="line gold">Worked With</span>
+        <span class="line">Thoughtfully</span>
+        <span class="line">Planned.</span>
+        <span class="line gold">Beautifully</span>
+        <span class="line">Celebrated.</span>
       </h1>
-      <p class="subtitle">From digital solutions and creative work to technology support and event planning, we work with businesses and organisations across different needs and industries.</p>
+      <p class="subtitle">From intimate celebrations and surprise events to corporate occasions, we take care of the planning, coordination and details that make your event memorable.</p>
       <div style="margin-top: 32px;">
-        <a href="#clients" class="btn btn-primary" id="get">View Our Clients <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-primary" id="get">Plan Your Event <span class="arrow">→</span></a>
       </div>
     </div>
     <div class="hero-img-wrapper">
-      <img src="./archeivementheropic.jpg" alt="Wizard Digitech Work">
+      <img src="./events.png" alt="Event & Party Planning Hero">
     </div>
   </section>
 
-  <!-- ===== CLIENTS SECTION ===== -->
-  <section id="clients" class="clients-section">
+  <!-- ===== OUR ATTENTION TO DETAIL ===== -->
+  <section class="detail-section">
     <div class="wrap">
-      <div class="clients-header reveal">
-        <span class="eyebrow">Our Clients &amp; Associations</span>
-        <h2>Trusted by <span class="gold">Businesses &amp; Organisations</span></h2>
-        <p>Every collaboration begins with understanding the requirement and delivering a solution that adds value.</p>
+      <div class="detail-header reveal">
+        <span class="eyebrow">Your Occasion. Our Attention to Detail.</span>
+        <h2>Our Attention to Detail.</h2>
+        <p>Every event has its own purpose, personality and special moments. We bring your ideas together through thoughtful planning, creative arrangements and reliable coordination, so you can focus on enjoying the occasion.</p>
       </div>
 
-      <div class="clients-grid">
-        <!-- 1. Mane Fruits -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./mane.jpg" alt="Mane Fruits">
-          </div>
-          <div class="client-name">Mane Fruits</div>
-          <div class="client-caption">Fresh. Pure. Premium.</div>
-        </div>
-
-        <!-- 2. Nortic -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./nortic.png" alt="Nortic">
-          </div>
-          <div class="client-name">Nortic</div>
-          <div class="client-caption">Website • Graphic Design • Digital Marketing</div>
-        </div>
-
-        <!-- 3. Quantus Learning -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./quatus.jpg" alt="Quantus Learning">
-          </div>
-          <div class="client-name">Quantus Learning</div>
-        </div>
-
-        <!-- 4. RotaRack -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./rota.jpg" alt="RotaRack">
-          </div>
-          <div class="client-name">Rotaract</div>
-          <div class="client-caption">Club of Vijayawada Midtown</div>
-        </div>
-
-        <!-- 5. Rotary Mid Town Vijayawada -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./rotary.jpg" alt="Rotary Mid Town Vijayawada">
-          </div>
-          <div class="client-name">Rotary Mid Town</div>
-          <div class="client-caption">Vijayawada</div>
-        </div>
-
-        <!-- 6. Shanthi Nilayam Bonakal -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./shanti.png" alt="Shanthi Nilayam Bonakal">
-          </div>
-          <div class="client-name">Shanthi Nilayam</div>
-          <div class="client-caption">Service to Humanity is Service to God</div>
-        </div>
-
-        <!-- 7. TATA HITACHI -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./tata.jpg" alt="TATA HITACHI">
-          </div>
-          <div class="client-name">TATA HITACHI</div>
-          <div class="client-caption">Reliable Solutions</div>
-        </div>
-
-        <!-- 8. Keerthi Medi Needs -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./keerthi.jpg" alt="Keerthi Medi Needs">
-          </div>
-          <div class="client-name">Keerthi Medi Needs</div>
-          <div class="client-caption"></div>
-        </div>
-        
-        <!-- 9. Jagan's Academy -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./jagans.jpg" alt="jagans">
-          </div>
-          <div class="client-name">Jagan's Acadamy</div>
-          <div class="client-caption">Concept of core learning</div>
-        </div>
-
-        <!-- 10. LIC -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./lic.jpg" alt="LIC">
-          </div>
-          <div class="client-name">LIC</div>
-          <div class="client-caption">Life Insurance Corporation of India</div>
-        </div>
-
-        <!-- 11. PSR Events -->
-        <div class="client-card reveal">
-          <div class="client-logo">
-            <img src="./Psr.jpg" alt="PSR Events">
-          </div>
-          <div class="client-name">PSR Events</div>
-          <div class="client-caption">Create Each Day a New</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== APPROACH SECTION ===== -->
-  <section class="approach-section">
-    <div class="wrap">
-      <div class="approach-header reveal">
-        <span class="eyebrow">Our Approach</span>
-        <h2>Every Project Starts with <span class="gold">Understanding</span></h2>
-        <p>We take the time to understand the requirement, identify the right approach and bring together the skills needed to deliver a practical solution.</p>
-      </div>
-
-      <div class="approach-flow">
-        <div class="approach-step reveal">
+      <div class="detail-flow">
+        <div class="detail-step reveal">
           <div class="step-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="step-title">Plan</div>
+          <div class="step-desc">Understand your occasion, preferences and requirements and create a practical event plan.</div>
+        </div>
+
+        <div class="detail-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+        <div class="detail-step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="step-title">Arrange</div>
+          <div class="step-desc">Coordinate the essential details, services, products and arrangements needed for your event.</div>
+        </div>
+
+        <div class="detail-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+        <div class="detail-step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="step-title">Celebrate</div>
+          <div class="step-desc">Enjoy your special occasion while we take care of the details behind the scenes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EVENT SERVICES (WITH SLIDE-UP REVEAL ANIMATION) ===== -->
+  <section class="events-section">
+    <div class="wrap">
+      <div class="events-header reveal">
+        <span class="eyebrow">Our Event Services</span>
+        <h2>Celebrations Planned Around You</h2>
+        <p>From intimate surprises to professional corporate occasions, we provide practical planning and coordination for events that deserve a personal touch.</p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Event 01 -->
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=450&fit=crop" alt="Party & Celebration Planning">
+          </div>
+          <div class="event-content">
+            <div class="event-header">
+              <div class="event-num">01</div>
+              <div class="event-title">Party &amp; Celebration Planning</div>
+            </div>
+            <p class="event-desc">From birthdays and anniversaries to family celebrations and special occasions, we help plan and coordinate memorable events around your theme, preferences and budget.</p>
+            <a href="#contact" class="event-link">Learn More <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Event 02 -->
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&h=450&fit=crop" alt="Surprise Events">
+          </div>
+          <div class="event-content">
+            <div class="event-header">
+              <div class="event-num">02</div>
+              <div class="event-title">Surprise Events</div>
+            </div>
+            <p class="event-desc">Create a moment they will never forget. We plan and coordinate surprises for birthdays, anniversaries, proposals and other special moments, taking care of the details from planning to execution.</p>
+            <a href="#contact" class="event-link">Learn More <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Event 03 -->
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=450&fit=crop" alt="Corporate Events">
+          </div>
+          <div class="event-content">
+            <div class="event-header">
+              <div class="event-num">03</div>
+              <div class="event-title">Corporate Events</div>
+            </div>
+            <p class="event-desc">Plan professional and engaging corporate events with professional support for meetings, celebrations, employee events, gatherings and business requirements.</p>
+            <a href="#contact" class="event-link">Learn More <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Event 04 -->
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=450&fit=crop" alt="Special Occasions">
+          </div>
+          <div class="event-content">
+            <div class="event-header">
+              <div class="event-num">04</div>
+              <div class="event-title">Special Occasions</div>
+            </div>
+            <p class="event-desc">Make life's milestones more meaningful with thoughtful planning and arrangements for engagements, baby showers, housewarmings, festive celebrations and other special occasions.</p>
+            <a href="#contact" class="event-link">Learn More <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Event 05 -->
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&h=450&fit=crop" alt="Return Gift Arrangements">
+          </div>
+          <div class="event-content">
+            <div class="event-header">
+              <div class="event-num">05</div>
+              <div class="event-title">Return Gift Arrangements</div>
+            </div>
+            <p class="event-desc">Make your celebration memorable even after the event with thoughtfully selected return gifts suited to your occasion, preferences and budget.</p>
+            <a href="#contact" class="event-link">Learn More <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Event 06 -->
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&h=450&fit=crop" alt="Event Decoration & Coordination">
+          </div>
+          <div class="event-content">
+            <div class="event-header">
+              <div class="event-num">06</div>
+              <div class="event-title">Event Decoration &amp; Coordination</div>
+            </div>
+            <p class="event-desc">Bring your event together with creative decoration concepts and reliable coordination of the venue, arrangements and details needed for a smooth celebration.</p>
+            <a href="#contact" class="event-link">Learn More <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OCCASIONS WE CELEBRATE ===== -->
+  <section class="occasions-section">
+    <div class="wrap">
+      <div class="occasions-header reveal">
+        <span class="eyebrow">Occasions We Can Help You Celebrate</span>
+        <h2>Making Every Occasion a Little More Special</h2>
+      </div>
+
+      <div class="occasions-grid">
+        <div class="occasion-card reveal">
+          <div class="occ-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="occ-title">Birthdays &amp; Anniversaries</div>
+          <div class="occ-desc">Thoughtful celebrations and surprises that reflect the person and the occasion.</div>
+        </div>
+
+        <div class="occasion-card reveal">
+          <div class="occ-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="occ-title">Family &amp; Social Gatherings</div>
+          <div class="occ-desc">Practical planning and coordination to bring together memorable moments with family and friends.</div>
+        </div>
+
+        <div class="occasion-card reveal">
+          <div class="occ-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="occ-title">Corporate Occasions</div>
+          <div class="occ-desc">Professional planning and coordination for meetings, employee celebrations and gatherings.</div>
+        </div>
+
+        <div class="occasion-card reveal">
+          <div class="occ-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="occ-title">Special Milestones</div>
+          <div class="occ-desc">Personalised arrangements for engagements, baby showers, housewarmings and celebrations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW WE WORK ===== -->
+  <section class="process-section">
+    <div class="wrap">
+      <div class="process-header reveal">
+        <span class="eyebrow">How We Work</span>
+        <h2>From Idea to Celebration</h2>
+        <p>A simple and organised process to bring your event to life.</p>
+      </div>
+
+      <div class="process-flow">
+        <div class="process-step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
           <div class="step-title">Understand</div>
-          <div class="step-desc">Understand the requirement and objective.</div>
+          <div class="step-desc">We understand your occasion, preferences, priorities and requirements.</div>
         </div>
 
-        <div class="approach-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="process-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
 
-        <div class="approach-step reveal">
+        <div class="process-step reveal">
           <div class="step-icon">
             <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg>
           </div>
           <div class="step-title">Plan</div>
-          <div class="step-desc">Identify the right approach and direction.</div>
+          <div class="step-desc">We create a practical event plan based on your ideas, preferences and budget.</div>
         </div>
 
-        <div class="approach-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="process-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
 
-        <div class="approach-step reveal">
+        <div class="process-step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="step-title">Arrange</div>
+          <div class="step-desc">We coordinate the required products, services, decorations and event details.</div>
+        </div>
+
+        <div class="process-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+        <div class="process-step reveal">
           <div class="step-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           </div>
-          <div class="step-title">Create</div>
-          <div class="step-desc">Develop the solution with creativity and purpose.</div>
+          <div class="step-title">Execute</div>
+          <div class="step-desc">We bring the planned arrangements together and take care of important details.</div>
         </div>
 
-        <div class="approach-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="process-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
 
-        <div class="approach-step reveal">
-          <div class="step-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <div class="step-title">Deliver</div>
-          <div class="step-desc">Complete the work with attention to quality and detail.</div>
-        </div>
-
-        <div class="approach-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-
-        <div class="approach-step reveal">
+        <div class="process-step reveal">
           <div class="step-icon">
             <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
           </div>
-          <div class="step-title">Support</div>
-          <div class="step-desc">Stay connected and provide support when needed.</div>
+          <div class="step-title">Celebrate</div>
+          <div class="step-desc">You enjoy the occasion while we take care of the details behind the scenes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY WIZARD DIGITECH ===== -->
+  <section class="why-section">
+    <div class="wrap">
+      <div class="why-header reveal">
+        <span class="eyebrow">Why Wizard Digitech</span>
+        <h2>Practical Planning, Personal Attention, Reliable Execution.</h2>
+        <p>We believe memorable events are created through thoughtful planning and attention to detail. Our approach is simple: understand what you want, plan it carefully and help bring it together smoothly.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="why-title">Personalised Approach</div>
+          <div class="why-desc">Every event is planned around your occasion, preferences and requirements.</div>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="why-title">Practical Solutions</div>
+          <div class="why-desc">We suggest solutions that suit your needs, priorities and budget.</div>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="why-title">Attention to Detail</div>
+          <div class="why-desc">We take care of the small details that help create a smooth and enjoyable experience.</div>
         </div>
       </div>
     </div>
@@ -1076,9 +1397,9 @@
 
         <div class="contact-card-left">
           <div>
-            <span class="eyebrow" style="color: var(--gold-light);">Let's Work Together</span>
-            <h2>Have a Project in Mind?</h2>
-            <p>Talk to our team and let's explore how we can work together.</p>
+            <span class="eyebrow" style="color: var(--gold-light);">Let's Plan Something Memorable</span>
+            <h2>Tell Us About Your Event</h2>
+            <p>Share your occasion, your ideas and what you have in mind. We will help you turn them into a thoughtfully planned and memorable celebration.</p>
           </div>
 
           <div class="contact-details">
@@ -1144,13 +1465,13 @@
             </div>
             <div class="qc-text">
               <h4>Quick Response</h4>
-              <p>Our team is ready to assist you with any project query or service request.</p>
+              <p>Our team is ready to assist you with any event query or planning request.</p>
             </div>
           </div>
 
           <div class="contact-social-block">
             <p class="contact-social-note">Prefer a quick chat? Reach us on WhatsApp and we'll get back to you right away.</p>
-            <a href="https://wa.me/917097754200?text=Hi%20Wizard%20Digitech%2C%20I%27d%20like%20to%20discuss%20a%20project."
+            <a href="https://wa.me/917097754200?text=Hi%20Wizard%20Digitech%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Event%20%26%20Party%20Planning%20services."
                target="_blank" rel="noopener"
                class="whatsapp-btn">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1193,10 +1514,12 @@
               <div class="field">
                 <label for="fservice">Service Interested In</label>
                 <select id="fservice">
-                  <option>Digital Solutions</option>
-                  <option>Technology Solutions</option>
-                  <option>Event &amp; Party Planning</option>
-                  <option>Digital Marketing Training</option>
+                  <option>Party &amp; Celebration Planning</option>
+                  <option>Surprise Events</option>
+                  <option>Corporate Events</option>
+                  <option>Special Occasions</option>
+                  <option>Return Gift Arrangements</option>
+                  <option>Event Decoration &amp; Coordination</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -1204,7 +1527,7 @@
 
             <div class="field">
               <label for="fmessage">Your Message</label>
-              <textarea id="fmessage" placeholder="Tell us about your project..." required></textarea>
+              <textarea id="fmessage" placeholder="Tell us about your event..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" id="get">Send Message <span class="arrow">→</span></button>

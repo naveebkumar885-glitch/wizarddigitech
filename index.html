@@ -1,1130 +1,2110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wizard Digitech — Your Digital Growth Partner</title>
-<meta name="description" content="Wizard Digitech is a strategy-led digital marketing partner in Vijayawada, Andhra Pradesh — building measurable growth through SEO, paid media, content and brand strategy.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wizard Digitech — Your Digital Growth Partner</title>
+  <meta name="description" content="Wizard Digitech is a strategy-led digital marketing partner in Vijayawada, Andhra Pradesh — building measurable growth through SEO, paid media, content and brand strategy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+      TOKENS
+      ============================================ */
+    :root {
+      --charcoal: #111111;
+      --white: #FAF9F6;
+      --beige: #EDE9E2;
+      --gray: #77736D;
+      --gold: #A87B20;
+      --gold-hover: #8C661A;
+      --gold-light: #C99A3A;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'Inter', sans-serif;
+      --container: 1200px;
+      --pad: clamp(24px, 5vw, 96px);
+      --ease: cubic-bezier(.4, 0, .2, 1);
+      --ease-smooth: cubic-bezier(.16, 1, .3, 1);
+    }
 
-/* ============================================
-   TOKENS
-   ============================================ */
-:root{
-  --charcoal:#111111;
-  --white:#FAF9F6;
-  --beige:#EDE9E2;
-  --gray:#77736D;
-  --gold:#A87B20; /* Updated to your exact RGB 168, 123, 32 */
-  --gold-hover:#8C661A;
-  --gold-light:#C99A3A;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  --serif:'Cormorant Garamond', serif;
-  --sans:'Inter', sans-serif;
+    html {
+      scroll-behavior: smooth;
+    }
 
-  --container: 1200px;
-  --pad: clamp(24px, 5vw, 96px);
-  --ease: cubic-bezier(.4,0,.2,1);
-}
+    body {
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--white);
-  color:var(--charcoal);
-  font-family:var(--sans);
-  font-weight:400;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img{max-width:100%;display:block;}
-a{color:inherit;text-decoration:none;}
-button{font-family:inherit;cursor:pointer;border:none;background:none;}
-ul{list-style:none;}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
 
-.wrap{max-width:var(--container); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad);}
-.section{padding:min(11vw,120px) 0;}
+    ul {
+      list-style: none;
+    }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
-.eyebrow{
-  font-family:var(--sans);
-  font-size:0.72rem;
-  letter-spacing:0.14em;
-  color:var(--gold);
-  font-weight:600;
-  text-transform:uppercase;
-  display:inline-block;
-  margin-bottom:20px;
-}
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
 
-h1,h2,h3{
-  font-family:var(--serif);
-  font-weight:500;
-  line-height:1.1;
-  letter-spacing:-0.01em;
-}
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
 
-h1{font-size:clamp(2.8rem, 5.8vw, 4.8rem);}
-h2{font-size:clamp(2rem, 3.6vw, 3.1rem);}
-h3{font-size:clamp(1.3rem, 2vw, 1.7rem); font-weight:600;}
+    .wrap {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
 
-p{color:var(--gray);}
+    .section {
+      padding: min(9vw, 100px) 0;
+    }
 
-.gold{color:var(--gold);}
+    /* ============================================
+      TYPOGRAPHY
+      ============================================ */
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:16px 30px;
-  font-size:0.85rem;
-  font-weight:600;
-  letter-spacing:0.03em;
-  border-radius:2px;
-  transition:all .4s var(--ease);
-  white-space:nowrap;
-}
-.btn-primary{
-  background:var(--gold);
-  color:var(--white);
-}
-.btn-primary:hover{
-  background:var(--gold-hover);
-  transform:translateY(-2px);
-  box-shadow:0 12px 24px -8px rgba(168,123,32,.4);
-}
-.btn-outline{
-  border:1px solid var(--charcoal);
-  color:var(--charcoal);
-}
-.btn-outline:hover{
-  background:var(--charcoal);
-  color:var(--white);
-}
-.btn span.arrow{transition:transform .35s var(--ease);}
-.btn:hover span.arrow{transform:translateX(5px);}
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
 
-/* ============================================
-   LOGO IMAGE
-   ============================================ */
-.brand-logo{
-  width:44px;
-  height:44px;
-  object-fit:contain;
-  flex:none;
-  border-radius:6px;
-  background:#FFFFFF;
-  padding:4px;
-  box-shadow:0 1px 3px rgba(17,17,17,.10), 0 0 0 1px rgba(17,17,17,.04);
-}
+    h1 {
+      font-size: clamp(2.8rem, 5.8vw, 4.8rem);
+    }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
-header{
-  position:fixed; top:0; left:0; right:0; z-index:100;
-  transition:background .4s var(--ease), border-color .4s var(--ease), padding .4s var(--ease);
-  padding:26px 0;
-  background:rgba(250,249,246,0);
-  border-bottom:1px solid transparent;
-}
-header.scrolled{
-  background:rgba(250,249,246,.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(17,17,17,.08);
-  padding:16px 0;
-}
-.nav-row{display:flex; align-items:center; justify-content:space-between; gap:24px;}
-.brand{display:flex; align-items:center; gap:12px; flex:none;}
-.brand-name{
-  font-family:var(--serif);
-  font-size:1.15rem;
-  font-weight:600;
-  letter-spacing:0.01em;
-  line-height:1.1;
-}
-.brand-tagline{
-  display:block;
-  font-family:var(--sans);
-  font-size:0.62rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--gray);
-  margin-top:2px;
-}
-nav.primary-nav{display:flex; gap:28px; flex-wrap:wrap; justify-content:center;}
-nav.primary-nav a{
-  font-size:0.85rem;
-  font-weight:500;
-  color:var(--charcoal);
-  position:relative;
-  padding:4px 0;
-  white-space:nowrap;
-}
-nav.primary-nav a::after{
-  content:"";
-  position:absolute; left:0; bottom:0;
-  width:0; height:1px;
-  background:var(--gold);
-  transition:width .35s var(--ease);
-}
-nav.primary-nav a:hover::after{width:100%;}
-.nav-right{display:flex; align-items:center; gap:20px; flex:none;}
-.hamburger{display:none; flex-direction:column; gap:5px; width:26px;}
-.hamburger span{height:1.5px; width:100%; background:var(--charcoal); transition:all .35s var(--ease);}
+    h2 {
+      font-size: clamp(2rem, 3.6vw, 3.1rem);
+    }
 
-@media(max-width:1100px){
-  nav.primary-nav{display:none;}
-  .nav-right .btn-primary{display:none;}
-  .hamburger{display:flex;}
-}
+    h3 {
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      font-weight: 600;
+    }
 
-/* mobile menu */
-.mobile-menu{
-  position:fixed; inset:0; z-index:99;
-  background:var(--white);
-  display:flex; flex-direction:column;
-  justify-content:center;
-  padding:0 var(--pad);
-  transform:translateY(-100%);
-  transition:transform .5s var(--ease);
-  overflow-y:auto;
-}
-.mobile-menu.open{transform:translateY(0);}
-.mobile-menu a{
-  font-family:var(--serif);
-  font-size:1.8rem;
-  padding:12px 0;
-  border-bottom:1px solid rgba(17,17,17,.08);
-}
-.mobile-menu .btn{margin-top:28px; align-self:flex-start;}
+    p {
+      color: var(--gray);
+    }
 
-/* ============================================
-   HERO
-   ============================================ */
-.hero{
-  padding:170px 0 min(9vw,90px);
-  position:relative;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.05fr 0.95fr;
-  gap:clamp(30px,5vw,80px);
-  align-items:center;
-}
-.hero h1{
-  margin-bottom:28px;
-}
-.hero p.lead{
-  font-size:1.05rem;
-  max-width:460px;
-  margin-bottom:38px;
-}
-.hero-actions{display:flex; gap:18px; flex-wrap:wrap;}
+    .gold {
+      color: var(--gold);
+    }
 
-.hero-visual{
-  position:relative;
-  aspect-ratio:4/5;
-  border-radius:4px;
-  overflow:hidden;
-  background:var(--beige);
-  box-shadow:0 20px 60px -20px rgba(17,17,17,.25);
-}
-.hero-visual img{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover;
-}
-.floating-card{
-  position:absolute;
-  bottom:28px; left:28px;
-  background:var(--white);
-  padding:22px 26px;
-  border-radius:2px;
-  box-shadow:0 24px 48px -16px rgba(0,0,0,.35);
-  min-width:170px;
-}
-.floating-card .big{
-  font-family:var(--serif);
-  font-size:2.1rem;
-  color:var(--gold);
-  line-height:1;
-}
-.floating-card .small{
-  font-size:0.7rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--gray);
-  margin-top:8px;
-  display:block;
-}
+    /* ============================================
+      BUTTONS
+      ============================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 2px;
+      transition: all .4s var(--ease);
+      white-space: nowrap;
+      text-align: center;
+    }
 
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;}
-  .hero-visual{order:-1; aspect-ratio:4/3;}
-  .hero{padding-top:140px;}
-}
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+    }
 
-/* ============================================
-   TRUST STRIP
-   ============================================ */
-.trust{
-  padding:40px 0;
-  border-top:1px solid rgba(17,17,17,.08);
-  border-bottom:1px solid rgba(17,17,17,.08);
-}
-.trust p{
-  text-align:center;
-  font-size:0.78rem;
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-  color:var(--gray);
-}
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(168, 123, 32, .4);
+    }
 
-/* ============================================
-   STATS ROW
-   ============================================ */
-.stats-section{
-  padding:60px 0 40px;
-}
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:30px;
-}
-.stat-item{
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
-}
-.stat-icon{
-  flex:none;
-  width:40px;
-  height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--gold);
-}
-.stat-icon svg{
-  width:100%;
-  height:100%;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:1.8;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-.stat-text .num{
-  font-family:var(--serif);
-  font-size:1.8rem;
-  font-weight:600;
-  color:var(--charcoal);
-  line-height:1.1;
-}
-.stat-text .lbl{
-  font-size:0.78rem;
-  color:var(--gray);
-  letter-spacing:0.02em;
-  margin-top:2px;
-}
+    .btn-outline {
+      border: 1px solid var(--charcoal);
+      color: var(--charcoal);
+    }
 
-@media(max-width:900px){
-  .stats-grid{grid-template-columns:repeat(2, 1fr);}
-}
-@media(max-width:500px){
-  .stats-grid{grid-template-columns:1fr;}
-}
+    .btn-outline:hover {
+      background: var(--charcoal);
+      color: var(--white);
+    }
 
-/* ============================================
-   LOGO BAR
-   ============================================ */
-.logo-bar{
-  padding:40px 0 60px;
-  border-top:1px solid rgba(17,17,17,.06);
-}
-.logo-bar-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:30px 40px;
-}
-.logo-bar-inner span{
-  font-size:1.1rem;
-  font-weight:500;
-  color:var(--gray);
-  opacity:0.7;
-  transition:opacity .3s var(--ease);
-  font-family:var(--sans);
-  letter-spacing:0.02em;
-}
-.logo-bar-inner span:hover{
-  opacity:1;
-}
+    .btn span.arrow {
+      transition: transform .35s var(--ease);
+    }
 
-/* ============================================
-   ABOUT
-   ============================================ */
-.about-home{
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:clamp(40px,6vw,80px);
-  align-items:center;
-}
-.about-home .about-text h2{margin-bottom:20px;}
-.about-home .about-text p{margin-bottom:18px; font-size:1.02rem;}
-.about-home .about-text .stats-inline{
-  display:flex;
-  gap:36px;
-  margin:26px 0 30px;
-  flex-wrap:wrap;
-}
-.about-home .about-text .stats-inline .s-item .num{
-  font-family:var(--serif);
-  font-size:1.8rem;
-  color:var(--gold);
-  font-weight:600;
-  line-height:1;
-}
-.about-home .about-text .stats-inline .s-item .lbl{
-  font-size:0.78rem;
-  color:var(--gray);
-  letter-spacing:0.02em;
-}
-.about-images{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:auto auto;
-  gap:16px;
-}
-.about-images .img-box{
-  border-radius:6px;
-  overflow:hidden;
-  box-shadow:0 8px 24px -8px rgba(17,17,17,.15);
-  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
-}
-.about-images .img-box:hover{
-  transform:translateY(-4px);
-  box-shadow:0 16px 40px -12px rgba(17,17,17,.22);
-}
-.about-images .img-box img{
-  width:100%; height:100%;
-  object-fit:cover;
-  aspect-ratio:1/1;
-}
-.about-images .img-box.tall{
-  grid-row:span 2;
-}
-.about-images .img-box.tall img{
-  aspect-ratio:auto;
-  height:100%;
-}
-@media(max-width:900px){
-  .about-home{grid-template-columns:1fr;}
-  .about-images{order:-1;}
-}
-@media(max-width:560px){
-  .about-images{grid-template-columns:1fr; grid-template-rows:auto;}
-  .about-images .img-box.tall{grid-row:auto;}
-}
+    .btn:hover span.arrow {
+      transform: translateX(5px);
+    }
 
-/* ============================================
-   CONTACT — Redesigned to be elegant & engaging
-   ============================================ */
-.contact-section {
-  background: var(--white);
-  padding: min(11vw, 120px) 0;
-}
+    /* ============================================
+      LOGO
+      ============================================ */
+    .brand-logo {
+      width: auto;
+      height: 56px;
+      object-fit: contain;
+      flex: none;
+      background: transparent !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      border: none !important;
+    }
 
-.contact-card {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  background: var(--charcoal);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 30px 80px -20px rgba(17,17,17,.4);
-}
+    /* ============================================
+      NAVBAR
+      ============================================ */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background .4s var(--ease), border-color .4s var(--ease), padding .4s var(--ease);
+      padding: 26px 0;
+      background: rgba(250, 249, 246, 0);
+      border-bottom: 1px solid transparent;
+    }
 
-/* Left panel - dark with details */
-.contact-card-left {
-  background: linear-gradient(145deg, #1A1A1A 0%, #111111 100%);
-  padding: clamp(40px, 5vw, 70px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-}
-.contact-card-left::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(168,123,32,.3), transparent);
-}
+    header.scrolled {
+      background: rgba(250, 249, 246, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(17, 17, 17, .08);
+      padding: 16px 0;
+    }
 
-.contact-card-left h2 {
-  color: var(--white);
-  margin-bottom: 16px;
-}
-.contact-card-left p {
-  color: rgba(250,249,246,.6);
-  font-size: 0.95rem;
-  max-width: 340px;
-}
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-.contact-details {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: none;
+    }
 
-.contact-detail-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
 
-.contact-detail-icon {
-  flex: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(168,123,32,.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-}
-.contact-detail-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+    .brand-tagline {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 2px;
+    }
 
-.contact-detail-text .label {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 4px;
-  display: block;
-}
-.contact-detail-text a,
-.contact-detail-text span.val {
-  font-size: 0.95rem;
-  color: var(--white);
-  transition: color .3s var(--ease);
-}
-.contact-detail-text a:hover {
-  color: var(--gold);
-}
+    nav.primary-nav {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
 
-.contact-social {
-  margin-top: 40px;
-  display: flex;
-  gap: 14px;
-}
-.contact-social a {
-  width: 38px;
-  height: 38px;
-  border: 1px solid rgba(250,249,246,.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(250,249,246,.6);
-  font-size: 0.7rem;
-  transition: all .3s var(--ease);
-}
-.contact-social a:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: rgba(168,123,32,.1);
-}
+    nav.primary-nav > a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      position: relative;
+      padding: 4px 0;
+      white-space: nowrap;
+    }
 
-/* Right panel - form */
-.contact-card-right {
-  background: var(--white);
-  padding: clamp(40px, 5vw, 70px);
-}
+    nav.primary-nav > a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .35s var(--ease);
+    }
 
-.contact-card-right h3 {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
-  color: var(--charcoal);
-}
-.contact-card-right > p {
-  margin-bottom: 34px;
-  font-size: 0.95rem;
-}
+    nav.primary-nav > a:hover::after {
+      width: 100%;
+    }
 
-/* Form styling */
-.contact-form .field {
-  margin-bottom: 22px;
-}
-.contact-form .field label {
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  color: var(--gray);
-  margin-bottom: 6px;
-  display: block;
-}
-.contact-form .field input,
-.contact-form .field select,
-.contact-form .field textarea {
-  width: 100%;
-  border: 1px solid rgba(17,17,17,.12);
-  border-radius: 4px;
-  background: transparent;
-  padding: 14px 16px;
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  color: var(--charcoal);
-  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
-}
-.contact-form .field input:focus,
-.contact-form .field select:focus,
-.contact-form .field textarea:focus {
-  border-color: var(--gold);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(168,123,32,.1);
-}
-.contact-form .field textarea {
-  resize: vertical;
-  min-height: 100px;
-}
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+    }
 
-.form-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
+    .drop-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 0;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: color .3s var(--ease);
+      position: relative;
+      font-family: inherit;
+    }
 
-.contact-form .btn {
-  width: 100%;
-  justify-content: center;
-  padding: 18px 30px;
-  margin-top: 8px;
-}
+    .drop-btn::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width .35s var(--ease);
+    }
 
-@media(max-width: 900px) {
-  .contact-card {
-    grid-template-columns: 1fr;
-  }
-  .contact-card-left::after {
-    display: none;
-  }
-}
-@media(max-width: 560px) {
-  .form-row-2 {
-    grid-template-columns: 1fr;
-  }
-}
+    .dropdown.active .drop-btn::after,
+    .drop-btn:hover::after {
+      width: 100%;
+    }
 
-/* ============================================
-   FOOTER
-   ============================================ */
-footer{
-  background:var(--charcoal);
-  color:rgba(250,249,246,.7);
-  padding:min(8vw,90px) 0 30px;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr 1fr;
-  gap:40px;
-  padding-bottom:60px;
-  border-bottom:1px solid rgba(250,249,246,.12);
-}
-.footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:18px;}
-.footer-brand .brand-logo{width:40px; height:40px;}
-.footer-brand-name{font-family:var(--serif); font-size:1.05rem; color:var(--white); font-weight:600;}
-.footer-tagline{font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-top:2px; display:block;}
-footer .col-title{
-  font-size:0.72rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--white);
-  margin-bottom:20px;
-}
-footer .col-list{display:flex; flex-direction:column; gap:12px;}
-footer .col-list a{font-size:0.88rem; transition:color .3s var(--ease);}
-footer .col-list a:hover{color:var(--gold);}
-.footer-desc{font-size:0.88rem; max-width:280px; line-height:1.6;}
-.footer-bottom{
-  padding-top:26px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:16px;
-  font-size:0.78rem;
-}
-.footer-bottom .legal{display:flex; gap:24px;}
-.footer-bottom a:hover{color:var(--gold);}
-.social-row{display:flex; gap:16px; margin-top:20px;}
-.social-row a{
-  width:34px; height:34px;
-  border:1px solid rgba(250,249,246,.2);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:0.7rem;
-  transition:all .3s var(--ease);
-}
-.social-row a:hover{border-color:var(--gold); color:var(--gold);}
+    .drop-btn .arrow {
+      font-size: 7px;
+      color: var(--gold);
+      transition: transform 0.35s var(--ease);
+      display: inline-block;
+      line-height: 1;
+      margin-left: 2px;
+    }
 
-@media(max-width:900px){
-  .footer-grid{grid-template-columns:1fr 1fr; row-gap:40px;}
-}
-@media(max-width:560px){
-  .footer-grid{grid-template-columns:1fr;}
-  .footer-bottom{flex-direction:column; align-items:flex-start;}
-}
+    .dropdown.active .drop-btn .arrow {
+      transform: rotate(180deg);
+    }
 
-/* ============================================
-   REVEAL
-   ============================================ */
-.reveal{opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
-.reveal.in{opacity:1; transform:translateY(0);}
+    .dropdown .menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px) scale(0.96);
+      width: 260px;
+      padding: 8px;
+      border-radius: 6px;
+      background: var(--white);
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      box-shadow:
+        0 4px 10px -2px rgba(17, 17, 17, 0.06),
+        0 24px 56px -16px rgba(17, 17, 17, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform-origin: top center;
+      transition:
+        opacity 0.25s ease,
+        transform 0.35s cubic-bezier(.16, 1, .3, 1),
+        visibility 0.25s;
+      z-index: 120;
+    }
 
-</style>
+    .dropdown.active .menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .dropdown .menu a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      margin: 2px 0;
+      border-radius: 4px;
+      color: var(--charcoal);
+      text-decoration: none;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.3s ease,
+        opacity 0.3s ease;
+      font-size: 0.83rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .dropdown .menu a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--gold);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+      transform-origin: top;
+    }
+
+    .dropdown .menu a:hover {
+      color: var(--gold);
+      background: rgba(168, 123, 32, 0.06);
+    }
+
+    .dropdown .menu a:hover::before {
+      transform: scaleY(1);
+    }
+
+    .dropdown.active .menu a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .dropdown.active .menu a:nth-child(1) { transition-delay: 0.04s; }
+    .dropdown.active .menu a:nth-child(2) { transition-delay: 0.08s; }
+    .dropdown.active .menu a:nth-child(3) { transition-delay: 0.12s; }
+    .dropdown.active .menu a:nth-child(4) { transition-delay: 0.16s; }
+
+    .dropdown .menu .icon {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      border-radius: 4px;
+      background: rgba(168, 123, 32, 0.10);
+      color: var(--gold);
+      transition: all 0.3s ease;
+      font-size: 0.78rem;
+      flex: none;
+    }
+
+    .dropdown .menu a:hover .icon {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 26px;
+    }
+
+    .hamburger span {
+      height: 1.5px;
+      width: 100%;
+      background: var(--charcoal);
+      transition: all .35s var(--ease);
+    }
+
+    @media(max-width:1100px) {
+      nav.primary-nav {
+        display: none;
+      }
+
+      .nav-right .btn-primary {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 var(--pad);
+      transform: translateY(-100%);
+      transition: transform .5s var(--ease);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open {
+      transform: translateY(0);
+    }
+
+    .mobile-menu > a,
+    .mobile-menu .mobile-dropdown-btn {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(17, 17, 17, .08);
+      color: var(--charcoal);
+      text-align: left;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      cursor: pointer;
+    }
+
+    .mobile-menu .mobile-dropdown-btn .arrow {
+      font-size: 12px;
+      color: var(--gold);
+      transition: transform .35s var(--ease);
+    }
+
+    .mobile-menu .mobile-dropdown.open .mobile-dropdown-btn .arrow {
+      transform: rotate(180deg);
+    }
+
+    .mobile-submenu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease), opacity .3s var(--ease);
+      opacity: 0;
+    }
+
+    .mobile-dropdown.open .mobile-submenu {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .mobile-submenu a {
+      font-family: var(--sans) !important;
+      font-size: 0.95rem !important;
+      color: var(--gray) !important;
+      padding: 14px 0 14px 20px !important;
+      border-bottom: 1px solid rgba(17, 17, 17, .05) !important;
+      display: flex !important;
+      align-items: center;
+      gap: 12px;
+      transition: color .25s var(--ease), padding-left .3s var(--ease);
+    }
+
+    .mobile-submenu a:hover {
+      color: var(--gold) !important;
+      padding-left: 26px !important;
+    }
+
+    .mobile-submenu a .icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background: rgba(168, 123, 32, 0.10);
+      color: var(--gold);
+      font-size: 0.8rem;
+      flex: none;
+    }
+
+    .mobile-menu .btn {
+      margin-top: 28px;
+      align-self: flex-start;
+    }
+
+    /* ============================================
+      HERO
+      ============================================ */
+    .hero {
+      padding: 140px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(30px, 5vw, 70px);
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1.3;
+      margin-bottom: 22px;
+      display: block;
+      letter-spacing: -0.01em;
+    }
+
+    .hero p.lead {
+      font-size: 1.05rem;
+      max-width: 460px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: row;
+      gap: 14px;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
+
+    .hero-actions .btn {
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 16px 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    @media(max-width: 480px) {
+      .hero-actions {
+        flex-wrap: wrap;
+      }
+      .hero-actions .btn {
+        flex: 1 1 100%;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+    }
+
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 5 / 5.4;
+      max-width: 420px;
+      width: 100%;
+      justify-self: end;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--beige);
+      box-shadow: 0 20px 50px -20px rgba(17, 17, 17, .22);
+    }
+
+    .hero-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media(max-width:900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        order: -1;
+        aspect-ratio: 16 / 10;
+        max-width: 100%;
+        justify-self: center;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+    }
+
+    @media(max-width:600px) {
+      .hero {
+        padding: 120px 0 40px;
+      }
+
+      .hero p.lead {
+        font-size: 1rem;
+        margin-bottom: 26px;
+      }
+    }
+
+    /* ============================================
+      ONE BUSINESS. TWO SOLUTIONS.
+      ============================================ */
+    .two-solutions {
+      padding: 20px 0 60px;
+    }
+
+    .two-solutions .section-head {
+      text-align: center;
+      margin-bottom: clamp(36px, 5vw, 60px);
+    }
+
+    .two-solutions .section-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+
+    .two-solutions .section-head h2 .gold {
+      color: var(--gold);
+    }
+
+    .two-solutions .section-head .sub {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--gray);
+      letter-spacing: 0.02em;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .solution-card {
+      background: var(--white);
+      border: 1px solid rgba(17, 17, 17, .08);
+      border-radius: 8px;
+      padding: clamp(32px, 4vw, 52px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all .4s var(--ease);
+      box-shadow: 0 8px 28px -10px rgba(17, 17, 17, .08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      opacity: 0;
+      transition: opacity .4s var(--ease);
+    }
+
+    .solution-card:hover::before {
+      opacity: 1;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 56px -16px rgba(17, 17, 17, .16);
+      border-color: rgba(168, 123, 32, .25);
+    }
+
+    .solution-card .card-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .solution-card .card-title .accent {
+      color: var(--gold);
+    }
+
+    .solution-card .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+      flex: 1;
+    }
+
+    .solution-card .card-list li {
+      font-size: 1rem;
+      color: var(--gray);
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(17, 17, 17, .04);
+    }
+
+    .solution-card .card-list li:last-child {
+      border-bottom: none;
+    }
+
+    .solution-card .card-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex: none;
+      opacity: 0.7;
+    }
+
+    .solution-card .card-btn {
+      align-self: flex-start;
+      padding: 14px 28px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 2px;
+      background: var(--charcoal);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all .35s var(--ease);
+    }
+
+    .solution-card .card-btn:hover {
+      background: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .solution-card .card-btn .arrow {
+      transition: transform .35s var(--ease);
+    }
+
+    .solution-card .card-btn:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    @media(max-width: 800px) {
+      .solution-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+      WHY WIZARD DIGITECH
+      ============================================ */
+    .why-section {
+      padding: 20px 0 min(9vw, 100px);
+      background: var(--white);
+    }
+
+    .why-section .section-head {
+      text-align: center;
+      margin-bottom: clamp(36px, 5vw, 60px);
+    }
+
+    .why-section .section-head .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .why-section .section-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+
+    .why-section .section-head h2 .gold {
+      color: var(--gold);
+    }
+
+    .why-section .section-head .sub {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--gray);
+      letter-spacing: 0.02em;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .why-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid rgba(17, 17, 17, .08);
+      border-radius: 10px;
+      padding: clamp(28px, 3vw, 40px) clamp(22px, 2.4vw, 30px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      cursor: pointer;
+      overflow: hidden;
+      min-height: 240px;
+      transition:
+        transform .55s var(--ease-smooth),
+        box-shadow .55s var(--ease-smooth),
+        border-color .4s var(--ease),
+        background .5s var(--ease);
+      box-shadow: 0 6px 22px -14px rgba(17, 17, 17, .10);
+      isolation: isolate;
+    }
+
+    .why-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .6s var(--ease-smooth);
+      z-index: 2;
+    }
+
+    .why-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .why-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(168, 123, 32, .05) 0%, rgba(168, 123, 32, 0) 60%);
+      opacity: 0;
+      transition: opacity .55s var(--ease-smooth);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .why-card:hover::after {
+      opacity: 1;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(168, 123, 32, .35);
+      box-shadow:
+        0 30px 60px -22px rgba(17, 17, 17, .18),
+        0 8px 18px -10px rgba(168, 123, 32, .20);
+    }
+
+    .why-card .why-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(168, 123, 32, 0.10);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex: none;
+      transition:
+        background .5s var(--ease-smooth),
+        color .5s var(--ease-smooth),
+        transform .6s var(--ease-smooth),
+        box-shadow .5s var(--ease-smooth);
+      position: relative;
+    }
+
+    .why-card:hover .why-icon {
+      background: var(--gold);
+      color: var(--white);
+      transform: rotate(-6deg) scale(1.08);
+      box-shadow: 0 10px 22px -8px rgba(168, 123, 32, .55);
+    }
+
+    .why-card .why-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .why-card .why-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin: 0;
+      transition: color .35s var(--ease);
+    }
+
+    .why-card:hover .why-title {
+      color: var(--gold);
+    }
+
+    .why-card .why-text {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.55;
+      margin-top: 0;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(10px);
+      overflow: hidden;
+      transition:
+        max-height .55s var(--ease-smooth),
+        opacity .45s var(--ease-smooth) .05s,
+        transform .55s var(--ease-smooth) .05s,
+        margin-top .4s var(--ease);
+      pointer-events: none;
+    }
+
+    .why-card:hover .why-text {
+      max-height: 220px;
+      opacity: 1;
+      transform: translateY(0);
+      margin-top: 12px;
+      pointer-events: auto;
+    }
+
+    .why-card .why-text strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    @media(max-width: 1000px) {
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 560px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .why-card {
+        min-height: 0;
+      }
+
+      @media (hover: none) {
+        .why-card .why-text {
+          max-height: 220px;
+          opacity: 1;
+          transform: translateY(0);
+          margin-top: 12px;
+        }
+      }
+    }
+
+    @media (hover: none) {
+      .why-card .why-text {
+        max-height: 220px;
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 12px;
+      }
+    }
+
+    /* ============================================
+      CONTACT
+      ============================================ */
+    .contact-section {
+      background: var(--white);
+      padding: min(9vw, 100px) 0;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      background: var(--charcoal);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px -20px rgba(17, 17, 17, .4);
+    }
+
+    .contact-card-left {
+      background: linear-gradient(145deg, #1A1A1A 0%, #111111 100%);
+      padding: clamp(40px, 5vw, 70px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .contact-card-left::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(168, 123, 32, .3), transparent);
+    }
+
+    .contact-card-left h2 {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .contact-card-left p {
+      color: rgba(250, 249, 246, .6);
+      font-size: 0.95rem;
+      max-width: 340px;
+    }
+
+    .contact-details {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-detail-icon {
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(168, 123, 32, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .contact-detail-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* WhatsApp icon — official green, no chip background */
+    .contact-detail-icon.whatsapp-icon {
+      background: transparent;
+    }
+    .contact-detail-icon.whatsapp-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: #25D366;
+      stroke: none;
+    }
+
+    .contact-detail-text .label {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .contact-detail-text a,
+    .contact-detail-text span.val {
+      font-size: 0.95rem;
+      color: var(--white);
+      transition: color .3s var(--ease);
+    }
+
+    .contact-detail-text a:hover {
+      color: var(--gold);
+    }
+
+    /* WhatsApp CTA block */
+    .contact-social-block {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-social-note {
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: rgba(250, 249, 246, 0.62);
+      max-width: 280px;
+      margin: 0;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: #25D366;
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-radius: 2px;
+      transition: all .35s var(--ease);
+      white-space: nowrap;
+    }
+
+    .whatsapp-btn svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      fill: currentColor;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1EBE5B;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px -8px rgba(37, 211, 102, .55);
+    }
+
+    /* ============================================
+      CONTACT — RIGHT PANEL (form side, filled in)
+      ============================================ */
+    .contact-card-right {
+      background: var(--white);
+      padding: clamp(40px, 5vw, 70px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-card-right h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+
+    .contact-card-right > p.form-sub {
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    /* Info strip at top of form */
+    .form-info-strip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(168, 123, 32, 0.07);
+      border-left: 3px solid var(--gold);
+      border-radius: 3px;
+      margin-bottom: 28px;
+    }
+
+    .form-info-strip svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .form-info-strip span {
+      font-size: 0.8rem;
+      color: var(--charcoal);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+
+    .contact-form .field {
+      margin-bottom: 22px;
+    }
+
+    .contact-form .field label {
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--gray);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .contact-form .field input,
+    .contact-form .field select,
+    .contact-form .field textarea {
+      width: 100%;
+      border: 1px solid rgba(17, 17, 17, .18);
+      border-radius: 4px;
+      background: rgba(17, 17, 17, .025);
+      padding: 14px 16px;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      transition: border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+    }
+
+    .contact-form .field input:hover,
+    .contact-form .field select:hover,
+    .contact-form .field textarea:hover {
+      border-color: rgba(17, 17, 17, .3);
+    }
+
+    .contact-form .field input:focus,
+    .contact-form .field select:focus,
+    .contact-form .field textarea:focus {
+      border-color: var(--gold);
+      background: var(--white);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(168, 123, 32, .12);
+    }
+
+    .contact-form .field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 18px 30px;
+      margin-top: 8px;
+    }
+
+    /* Below-form info */
+    .form-after {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(17, 17, 17, .08);
+    }
+
+    .form-after-title {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .form-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    .form-steps li .step-num {
+      flex: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(168, 123, 32, 0.14);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .form-steps li strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    .form-quick-hint {
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .form-quick-hint a {
+      color: var(--gold);
+      font-weight: 600;
+      border-bottom: 1px solid rgba(168, 123, 32, .35);
+      padding-bottom: 1px;
+      transition: border-color .3s var(--ease);
+    }
+
+    .form-quick-hint a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    @media(max-width: 900px) {
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card-left::after {
+        display: none;
+      }
+    }
+
+    @media(max-width: 560px) {
+      .form-row-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+      FOOTER
+      ============================================ */
+    footer {
+      background: var(--charcoal);
+      color: rgba(250, 249, 246, .7);
+      padding: min(7vw, 80px) 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(250, 249, 246, .12);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand .brand-logo {
+      width: auto;
+      height: 48px;
+      background: transparent !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .footer-tagline {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+      display: block;
+    }
+
+    footer .col-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    footer .col-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    footer .col-list a {
+      font-size: 0.88rem;
+      transition: color .3s var(--ease);
+    }
+
+    footer .col-list a:hover {
+      color: var(--gold);
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.78rem;
+    }
+
+    .footer-bottom .legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--gold);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-row a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(250, 249, 246, .2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: all .3s var(--ease);
+    }
+
+    .social-row a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    @media(max-width:900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 40px;
+      }
+    }
+
+    @media(max-width:560px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ============================================
+      REVEAL
+      ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+     #get{
+      background-color:rgb(225, 1,5);
+    } 
+  </style>
 </head>
 <body>
 
-<!-- ============================================
-     HEADER / NAV
-     ============================================ -->
-<header id="siteHeader">
-  <div class="wrap nav-row">
-    <a href="#home" class="brand">
-      <img class="brand-logo" src="./logo.jpeg" alt="Wizard Digitech logo">
-      <div>
-        <div class="brand-name">Wizard Digitech</div>
-        <div class="brand-tagline">Digital Growth Partner</div>
-      </div>
-    </a>
-    <nav class="primary-nav">
-      <a href="#home">Home</a>
-      <a href="./digitalmarketing.html">Digital Marketing</a>
-      <a href="./electronicrepairs.html">Electronic Repairs</a>
-      <a href="./team.html">Team</a>
-      <a href="./About.html">About</a>
-      <a href="#contact">Contact</a>
-      <a href="./archeivements.html">Achievements</a>
-    </nav>
-    <div class="nav-right">
-      <a href="#contact" class="btn btn-primary">Let's Talk</a>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#home">Home</a>
-  <a href="./digitalmarketing.html">Digital Marketing</a>
-  <a href="./electronicrepairs.html">Electronic Repairs</a>
-  <a href="./team.html">Team</a>
-  <a href="./About.html">About</a>
-  <a href="#contact">Contact</a>
-  <a href="./archeivements.html">Achievements</a>
-  <a href="#contact" class="btn btn-primary">Let's Talk</a>
-</div>
-
-<!-- ============================================
-     HERO
-     ============================================ -->
-<section id="home" class="hero">
-  <div class="wrap hero-grid">
-    <div class="reveal in">
-      <span class="eyebrow">Digital Marketing Agency</span>
-      <h1>Wizard Digitech<br><span class="gold">Here.</span></h1>
-      <p class="lead">We craft elegant digital strategies that build brands, create opportunities and deliver lasting success.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Our Services <span class="arrow">→</span></a>
-        <a href="./digitalmarketing.html" class="btn btn-outline">Schedule a Call</a>
-      </div>
-    </div>
-    <div class="hero-visual reveal in">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=1000&fit=crop&crop=center" alt="Modern office interior with marketing sign" loading="lazy">
-      <div class="floating-card">
-        <span class="big gold">+200%</span>
-        <span class="small">Average Traffic Growth</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     TRUST STRIP
-     ============================================ -->
-<div class="trust reveal">
-  <p>Trusted by ambitious brands and growing businesses across Andhra Pradesh</p>
-</div>
-
-<!-- ============================================
-     STATS ROW
-     ============================================ -->
-<div class="stats-section reveal">
-  <div class="wrap stats-grid">
-    <div class="stat-item">
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      </div>
-      <div class="stat-text">
-        <div class="num">500+</div>
-        <div class="lbl">Happy Clients</div>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-          <polyline points="2 17 12 22 22 17"/>
-          <polyline points="2 12 12 17 22 12"/>
-        </svg>
-      </div>
-      <div class="stat-text">
-        <div class="num">1200+</div>
-        <div class="lbl">Projects Completed</div>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
-        </svg>
-      </div>
-      <div class="stat-text">
-        <div class="num">95%</div>
-        <div class="lbl">Client Satisfaction</div>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-          <path d="M4 22h16"/>
-          <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-          <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-          <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-        </svg>
-      </div>
-      <div class="stat-text">
-        <div class="num">10+</div>
-        <div class="lbl">Years of Excellence</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================
-     LOGO BAR
-     ============================================ -->
-<div class="logo-bar reveal">
-  <div class="wrap logo-bar-inner">
-    <span>Google</span>
-    <span>Meta</span>
-    <span>Microsoft</span>
-    <span>Adobe</span>
-    <span>Shopify</span>
-    <span>LinkedIn</span>
-  </div>
-</div>
-
-<!-- ============================================
-     ABOUT
-     ============================================ -->
-<section id="about" class="section">
-  <div class="wrap about-home">
-    <div class="about-text reveal">
-      <span class="eyebrow">About Our Company</span>
-      <h2>We turn ambitious ideas into meaningful digital growth.</h2>
-      <p>Wizard Digitech is a premier Digital Marketing and Electronics Repair company dedicated to providing top-quality services in both domains. With a team of certified digital marketing experts and skilled electronics engineers, we offer comprehensive solutions that bridge the gap between digital success and device reliability.</p>
-      <p>From building digital skills and growing online presence to diagnosing and repairing electronic devices, our team combines professional knowledge, practical experience and a commitment to quality service.</p>
-      <div class="stats-inline">
-        <div class="s-item">
-          <div class="num">200+</div>
-          <div class="lbl">Clients served</div>
-        </div>
-        <div class="s-item">
-          <div class="num">98%</div>
-          <div class="lbl">Satisfaction rate</div>
-        </div>
-        <div class="s-item">
-          <div class="num">5+</div>
-          <div class="lbl">Years experience</div>
-        </div>
-      </div>
-      <a href="./modified/About.html" class="btn btn-outline">Learn More About Us <span class="arrow">→</span></a>
-    </div>
-    <div class="about-images reveal">
-      <div class="img-box tall">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=900&fit=crop&crop=center" alt="Our team at work" loading="lazy">
-      </div>
-      <div class="img-box">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&crop=center" alt="Digital marketing analytics" loading="lazy">
-      </div>
-      <div class="img-box">
-        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=400&fit=crop&crop=center" alt="Electronics repair technician" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================
-     CONTACT — Redesigned Elegant Card
-     ============================================ -->
-<section id="contact" class="contact-section">
-  <div class="wrap reveal">
-    <div class="contact-card">
-
-      <!-- Left Panel: Dark, Elegant Details -->
-      <div class="contact-card-left">
+  <!-- HEADER / NAV -->
+  <header id="siteHeader">
+    <div class="wrap nav-row">
+      <a href="index.html" class="brand">
+        <img class="brand-logo" src="./logo.png" alt="Wizard Digitech logo">
         <div>
-          <span class="eyebrow" style="color: var(--gold-light);">Get in Touch</span>
-          <h2>Let's build something<br>great together.</h2>
-          <p>Whether you need digital marketing training, marketing services, or professional electronics repair, our team is ready to help.</p>
+          <div class="brand-name">Wizard Digitech</div>
+          <div class="brand-tagline">YOUR DIGITAL & TECH PARTNER</div>
         </div>
+      </a>
+      <nav class="primary-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
 
-        <div class="contact-details">
-          <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <div class="contact-detail-text">
-              <span class="label">Phone</span>
-              <a href="tel:+917097754200">+91 70977 54200</a>
-            </div>
-          </div>
-
-          <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div class="contact-detail-text">
-              <span class="label">Email</span>
-              <a href="mailto:wizard.digitech@gmail.com">wizard.digitech@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div class="contact-detail-text">
-              <span class="label">Location</span>
-              <span class="val">Vijayawada, Andhra Pradesh</span>
-            </div>
-          </div>
-
-          <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg viewBox="0 0 24 24">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-            </div>
-            <div class="contact-detail-text">
-              <span class="label">Business Details</span>
-              <span class="val" style="font-size: 0.85rem; opacity: 0.8;">Proprietor: T.S.L. Nishitha<br>UDYAM-AP-06-0008803</span>
-            </div>
+        <div class="dropdown" id="dropdown">
+          <button class="drop-btn" id="dropBtn" aria-haspopup="true" aria-expanded="false">
+            Services
+            <span class="arrow">▼</span>
+          </button>
+          <div class="menu">
+            <a href="digitalsolution.html">
+              <span class="icon">⚡</span>
+              Digital Solutions
+            </a>
+            <a href="DM.html">
+              <span class="icon">🎓</span>
+              Digital Marketing Training
+            </a>
+            <a href="Technology.html">
+              <span class="icon">🔧</span>
+              Technology Solutions
+            </a>
+            <a href="events.html">
+              <span class="icon">🎉</span>
+              Events and Planning
+            </a>
           </div>
         </div>
 
-        <div class="contact-social">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="LinkedIn">IN</a>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="YouTube">YT</a>
-        </div>
+        <a href="archeivements.html">Achievements</a>
+        <a href="team.html">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="#contact" class="btn btn-primary" id="get">Get in Touch</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
-      <!-- Right Panel: Form -->
-      <div class="contact-card-right">
-        <h3>Send a Message</h3>
-        <p>Fill out the form below and we'll get back to you within 24 hours.</p>
-
-        <form class="contact-form" id="contactForm" onsubmit="return false;">
-          <div class="form-row-2">
-            <div class="field">
-              <label for="fname">Your Name</label>
-              <input id="fname" type="text" placeholder="John Doe" required>
-            </div>
-            <div class="field">
-              <label for="femail">Email Address</label>
-              <input id="femail" type="email" placeholder="john@example.com" required>
-            </div>
-          </div>
-
-          <div class="form-row-2">
-            <div class="field">
-              <label for="fphone">Phone Number</label>
-              <input id="fphone" type="tel" placeholder="+91 98765 43210">
-            </div>
-            <div class="field">
-              <label for="fservice">Service Interested In</label>
-              <select id="fservice">
-                <option>Digital Strategy</option>
-                <option>SEO</option>
-                <option>Social Media Marketing</option>
-                <option>Paid Advertising</option>
-                <option>Content Marketing</option>
-                <option>Brand Strategy</option>
-                <option>Electronics Repair</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="fmessage">Your Message</label>
-            <textarea id="fmessage" placeholder="Tell us about your project..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Send Message <span class="arrow">→</span></button>
-        </form>
-      </div>
-
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ============================================
-     FOOTER
-     ============================================ -->
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img class="brand-logo" src="./logo.jpeg" alt="Wizard Digitech logo">
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+
+    <div class="mobile-dropdown" id="mobileDropdown">
+      <button class="mobile-dropdown-btn" id="mobileDropBtn" aria-expanded="false">
+        Services
+        <span class="arrow">▼</span>
+      </button>
+      <div class="mobile-submenu">
+        <a href="digitalsolution.html">
+          <span class="icon">⚡</span>
+          Digital Solutions
+        </a>
+        <a href="DM.html">
+          <span class="icon">🎓</span>
+          Digital Marketing Training
+        </a>
+        <a href="Technology.html">
+          <span class="icon">🔧</span>
+          Technology Solutions
+        </a>
+        <a href="events.html">
+          <span class="icon">🎉</span>
+          Events and Planning
+        </a>
+      </div>
+    </div>
+
+    <a href="archeivements.html">Achievements</a>
+    <a href="team.html">Team</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal in">
+        <h1>Wizard Digitech</h1>
+        <span class="hero-subtitle">Your Digital &amp; Technology Solutions Partner</span>
+        <p class="lead">We craft practical digital, creative, and technology solutions for businesses, organisations, and individuals.</p>
+        <div class="hero-actions">
+          <a href="digitalsolution.html" class="btn btn-primary" id="get">Explore Digital Solutions <span class="arrow">→</span></a>
+          <a href="Technology.html" class="btn btn-outline">Explore Technology Solutions</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal in">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=1000&fit=crop&crop=center" alt="Team collaborating on digital and technology projects">
+      </div>
+    </div>
+  </section>
+
+  <!-- ONE BUSINESS. TWO SOLUTIONS. -->
+  <section id="services" class="two-solutions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>ONE BUSINESS.<br><span class="gold">TWO SOLUTIONS.</span></h2>
+        <p class="sub">Practical digital solutions to grow your presence — and reliable technology solutions to keep you connected.</p>
+      </div>
+
+      <div class="solution-grid">
+        <div class="solution-card reveal">
           <div>
-            <div class="footer-brand-name">Wizard Digitech</div>
-            <div class="footer-tagline">Your Digital Growth Partner</div>
+            <h3 class="card-title">DIGITAL <span class="accent">SOLUTIONS</span></h3>
+            <ul class="card-list">
+              <li>Digital Marketing &amp; Advertising</li>
+              <li>SEO &amp; Content Marketing</li>
+              <li>Website Designing &amp; Development</li>
+              <li>E-commerce Solutions</li>
+              <li>Branding &amp; Creative Solutions</li>
+              <li>Reputation &amp; Performance Management</li>
+            </ul>
+          </div>
+          <a href="digitalsolution.html" class="card-btn" id="get">Explore <span class="arrow">→</span></a>
+        </div>
+
+        <div class="solution-card reveal">
+          <div>
+            <h3 class="card-title">TECHNOLOGY <span class="accent">SOLUTIONS</span></h3>
+            <ul class="card-list">
+              <li>Electronics Sales &amp; Accessories</li>
+              <li>Electronics Repairs &amp; Servicing</li>
+              <li>Electronics Support &amp; Maintenance</li>
+            </ul>
+          </div>
+          <a href="Technology.html" class="card-btn" id="get">Explore <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WIZARD DIGITECH -->
+  <section id="why" class="why-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Wizard Digitech</span>
+        <h2>Built on clarity.<br><span class="gold">Backed by care.</span></h2>
+        <p class="sub">Four simple reasons clients choose us for their digital and technology needs.</p>
+      </div>
+
+      <div class="why-grid">
+        <!-- CARD 1 -->
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Practical Solutions</h3>
+          <p class="why-text">We focus on solutions suited to the customer's actual requirement.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Two Core Verticals</h3>
+          <p class="why-text">Digital and technology services under one brand.</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3 class="why-title">Customer-Focused Approach</h3>
+          <p class="why-text">We aim to understand the requirement clearly and provide dependable support.</p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="why-title">End-to-End Assistance</h3>
+          <p class="why-text">From digital presence and creative needs to technology products, repairs and maintenance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="wrap reveal">
+      <div class="contact-card">
+
+        <div class="contact-card-left">
+          <div>
+            <span class="eyebrow" style="color: var(--gold-light);">Get in Touch</span>
+            <h2>Let's build something<br>great together.</h2>
+            <p>Whether you need digital marketing, creative and web solutions, technology products, repairs or technical support, we're here to help you find the right solution.</p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <span class="label">Phone</span>
+                <a href="tel:+917097754200">+91 70977 54200</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <span class="label">Email</span>
+                <a href="mailto:wizard.digitech@gmail.com">wizard.digitech@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <span class="label">Location</span>
+                <span class="val">Vijayawada, Andhra Pradesh</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+              </div>
+              <div class="contact-detail-text">
+                <span class="label">Business Details</span>
+                <span class="val" style="font-size: 0.95rem; font-weight: 500;">Wizard Digitech</span>
+                <span class="val" style="font-size: 0.85rem; opacity: 0.8; display: block; margin-top: 2px;">UDYAM-AP-06-0008803</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social-block">
+            <p class="contact-social-note">Prefer a quick chat? Reach us on WhatsApp and we'll get back to you right away.</p>
+            <a href="https://wa.me/917097754200?text=Hi%20Wizard%20Digitech%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
+               target="_blank" rel="noopener"
+               class="whatsapp-btn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Send WhatsApp Message
+            </a>
           </div>
         </div>
-        <p class="footer-desc">Building meaningful digital experiences for ambitious businesses.</p>
-        <div class="social-row">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="LinkedIn">IN</a>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="YouTube">YT</a>
+
+        <!-- ===== RIGHT PANEL — NOW FILLED IN ===== -->
+        <div class="contact-card-right">
+          <h3>Send a Message</h3>
+          <p class="form-sub">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+          <!-- Info strip -->
+          <div class="form-info-strip">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            <span>Fast response — usually within a few hours during business days.</span>
+          </div>
+
+          <form class="contact-form" id="contactForm" onsubmit="return false;">
+            <div class="form-row-2">
+              <div class="field">
+                <label for="fname">Your Name</label>
+                <input id="fname" type="text" placeholder="John Doe" required>
+              </div>
+              <div class="field">
+                <label for="femail">Email Address</label>
+                <input id="femail" type="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="field">
+                <label for="fphone">Phone Number</label>
+                <input id="fphone" type="tel" placeholder="+91 98765 43210">
+              </div>
+              <div class="field">
+                <label for="fservice">Service Interested In</label>
+                <select id="fservice">
+                  <option>Digital Marketing &amp; Advertising</option>
+                  <option>SEO &amp; Content Marketing</option>
+                  <option>Website Designing &amp; Development</option>
+                  <option>E-commerce Solutions</option>
+                  <option>Branding &amp; Creative Solutions</option>
+                  <option>Reputation &amp; Performance Management</option>
+                  <option>Digital Marketing Training</option>
+                  <option>Event &amp; Party Planning</option>
+                  <option>Electronics Sales &amp; Accessories</option>
+                  <option>Electronics Repairs &amp; Servicing</option>
+                  <option>Electronics Support &amp; Maintenance</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="fmessage">Your Message</label>
+              <textarea id="fmessage" placeholder="Tell us about your project..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="get">Send Message <span class="arrow">→</span></button>
+          </form>
+
+          <!-- Below-form info -->
+          <div class="form-after">
+            <span class="form-after-title">What happens next</span>
+            <ul class="form-steps">
+              <li>
+                <span class="step-num">1</span>
+                <span>We review your message and <strong>understand your requirement</strong>.</span>
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <span>We get back to you within <strong>24 hours</strong> with the right direction.</span>
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <span>We plan a <strong>practical, no-pressure conversation</strong> to take it forward.</span>
+              </li>
+            </ul>
+
+            <p class="form-quick-hint">
+              In a hurry? <a href="https://wa.me/917097754200" target="_blank" rel="noopener">Message us directly on WhatsApp →</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img class="brand-logo" src="./logo.png" alt="Wizard Digitech logo">
+            <div>
+              <div class="footer-brand-name">Wizard Digitech</div>
+              <div class="footer-tagline">Your Digital Tech Partner</div>
+            </div>
+          </div>
+          <p class="footer-desc">Practical digital, creative, and technology solutions for businesses, organisations, and individuals.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="LinkedIn">IN</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Navigation</div>
+          <div class="col-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="digitalsolution.html">Digital Solutions</a>
+            <a href="Technology.html">Technology Solutions</a>
+            <a href="archeivements.html">Achievements</a>
+            <a href="team.html">Team</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Services</div>
+          <div class="col-list">
+            <a href="digitalsolution.html">Digital Marketing &amp; Advertising</a>
+            <a href="digitalsolution.html">SEO &amp; Content Marketing</a>
+            <a href="digitalsolution.html">Website Designing &amp; Development</a>
+            <a href="digitalsolution.html">E-commerce Solutions</a>
+            <a href="digitalsolution.html">Branding &amp; Creative Solutions</a>
+            <a href="digitalsolution.html">Reputation &amp; Performance Management</a>
+            <a href="events.html">Event &amp; Party Planning</a>
+          </div>
+        </div>
+        <div>
+          <div class="col-title">Contact</div>
+          <div class="col-list">
+            <a href="tel:+917097754200">+91 70977 54200</a>
+            <a href="mailto:wizard.digitech@gmail.com">wizard.digitech@gmail.com</a>
+            <span>Vijayawada, Andhra Pradesh</span>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="col-title">Navigation</div>
-        <div class="col-list">
-          <a href="#home">Home</a>
-          <a href="./modified/digitalmarketing.html">Digital Marketing</a>
-          <a href="./modified/elctronics repair.html">Electronic Repairs</a>
-          <a href="./modified/team.html">Team</a>
-          <a href="./modified/About.html">About</a>
-          <a href="#contact">Contact</a>
-          <a href="./modified/archeivements.html">Achievements</a>
-        </div>
-      </div>
-      <div>
-        <div class="col-title">Services</div>
-        <div class="col-list">
-          <a href="./modified/digitalmarketing.html">Digital Strategy</a>
-          <a href="./modified/digitalmarketing.html">SEO</a>
-          <a href="./modified/digitalmarketing.html">Social Media Marketing</a>
-          <a href="./modified/digitalmarketing.html">Paid Advertising</a>
-          <a href="./modified/digitalmarketing.html">Content Marketing</a>
-          <a href="./modified/digitalmarketing.html">Brand Strategy</a>
-        </div>
-      </div>
-      <div>
-        <div class="col-title">Contact</div>
-        <div class="col-list">
-          <a href="tel:+917097754200">+91 70977 54200</a>
-          <a href="mailto:wizard.digitech@gmail.com">wizard.digitech@gmail.com</a>
-          <span>Vijayawada, Andhra Pradesh</span>
+      <div class="footer-bottom">
+        <span>© 2026 Wizard Digitech. All rights reserved.</span>
+        <div class="legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Wizard Digitech. All rights reserved.</span>
-      <div class="legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-// Sticky header
-const header = document.getElementById('siteHeader');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+  <script>
+    // Sticky header
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
 
-// Mobile menu
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburgerBtn.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  hamburgerBtn.setAttribute('aria-expanded', open);
-});
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  hamburgerBtn.setAttribute('aria-expanded', 'false');
-}));
+    // MOBILE MENU
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-// Scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in');
-      io.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-revealEls.forEach(el => io.observe(el));
-</script>
+    hamburgerBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburgerBtn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (a.closest('.mobile-submenu')) return;
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // MOBILE SERVICES ACCORDION
+    const mobileDropdown = document.getElementById('mobileDropdown');
+    const mobileDropBtn = document.getElementById('mobileDropBtn');
+
+    mobileDropBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isOpen = mobileDropdown.classList.toggle('open');
+      mobileDropBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileDropdown.querySelectorAll('.mobile-submenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDropdown.classList.remove('open');
+        mobileDropBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // DESKTOP DROPDOWN
+    const dropdown = document.getElementById('dropdown');
+    const dropBtn = document.getElementById('dropBtn');
+
+    dropBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const isOpen = dropdown.classList.toggle('active');
+      dropBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    dropdown.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        dropdown.classList.remove('active');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        dropdown.classList.remove('active');
+        dropBtn.setAttribute('aria-expanded', 'false');
+        mobileDropdown.classList.remove('open');
+        mobileDropBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  </script>
 
 </body>
 </html>
